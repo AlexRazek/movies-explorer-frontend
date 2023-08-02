@@ -1,0 +1,22 @@
+.addparts__about {
+    color: #FFF;
+    font-family: Inter;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.88px;
+    margin: 110px 70px 0px 70px;
+    border: none;
+    border-bottom: 1px solid #DADADA;
+    padding-bottom: 22px;
+}
+
+.addparts__margin-top {
+    margin-top: 100px;
+}
+
+.border__bottom {
+    border-bottom: 1px solid #424242;
+    padding-bottom: 19px;
+}

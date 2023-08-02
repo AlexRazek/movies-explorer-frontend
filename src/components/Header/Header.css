@@ -1,0 +1,107 @@
+.header {
+    margin: 0 auto;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+    max-height: 74px;
+    /* padding-top: 45px; */
+    /* margin-top: 45px; */
+    /* margin-bottom: 40px; */
+    background-color: #073042;
+    /* border-bottom: 1px solid rgb(84, 84, 84, 0.7); */
+  }
+
+.header__logo {
+    background: url('../../images/logo-smile.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+    margin-left: 70px;
+    width: 38px;
+    height: 38px;
+    z-index: 2;
+    /* margin-bottom: 41px; */
+}
+
+.header__auth {
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+}
+
+.header__auth-text {
+    margin: auto;
+    padding: 0;
+    color: #FFF;
+    /* text-align: right; */
+    font-family: Inter;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 16px;
+    text-decoration: none;
+}
+
+.header__auth-btn {
+    display: flex;
+    place-content: center;
+    align-items: center;
+    width: 76px;
+    height: 32px;
+    border-radius: 3px;
+    box-sizing: border-box;
+    background-color: #3DDC84;
+    margin: 21px 70px 24px 30px;
+    font-family: Inter;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 16px; /* 133.333% */
+    text-align: center;
+    text-decoration: none;
+    color: #000;
+    opacity: 1;
+    cursor: pointer;
+}
+
+.header__accaunt {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+    text-align: right;
+    color: #FFFFFF;
+    margin-right: 24px;
+}
+
+
+@media (max-width: 1023px) {
+    .header {
+      width: calc(100% - 160px);
+    }
+  }
+  
+@media (max-width: 767px) {
+    .header {
+      width: calc(100% - 60px);
+    }
+  }
+  
+@media (max-width: 425px) {
+    .header {
+      width: 100%;
+      margin-top: 28px;
+      margin-bottom: 39px;
+    }
+
+    .header__logo {
+        width: 106px;
+        height: 25px;
+        margin-left: 27px;
+        margin-bottom: 30px;
+    }
+  }
