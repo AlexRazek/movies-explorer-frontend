@@ -12,21 +12,21 @@ const Portfolio = (props) => {
                 <a 
                 href="https://github.com/AlexRazek/how-to-learn" className="portfolio__link border__bottom">
                 <p className="portfolio__text">Статичный сайт</p>
-                <img src={arrow} alt="ссылка на статичный сайт"/> 
+                <img src={arrow} className="portfolio__link-arrow" alt="ссылка на статичный сайт"/> 
                 </a>
             </li>
             <li className="portfolio__item">
                 <a 
                 href="https://github.com/AlexRazek/russian-travel" className="portfolio__link border__bottom">
                 <p className="portfolio__text">Адаптивный сайт</p>
-                <img src={arrow} alt="ссылка на адаптивный сайт"/> 
+                <img src={arrow} className="portfolio__link-arrow" alt="ссылка на адаптивный сайт"/> 
                 </a>
             </li>
             <li className="portfolio__item">
                 <a 
                 href="https://github.com/AlexRazek/react-mesto-api-full-gha" className="portfolio__link">
                 <p className="portfolio__text">Одностраничное приложение</p>
-                <img src={arrow} alt="ссылка на одностраничное приложение"/> 
+                <img src={arrow} className="portfolio__link-arrow" alt="ссылка на одностраничное приложение"/> 
                 </a>
             </li>
         </ul>    

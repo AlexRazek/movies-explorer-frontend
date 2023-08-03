@@ -54,7 +54,7 @@
     border-radius: 3px;
     box-sizing: border-box;
     background-color: #3DDC84;
-    margin: 21px 70px 24px 30px;
+    margin: 21px 70px 21px 30px;
     font-family: Inter;
     font-size: 12px;
     font-style: normal;
@@ -80,28 +80,36 @@
 
 
 @media (max-width: 1023px) {
-    .header {
-      width: calc(100% - 160px);
-    }
+  .header__logo { 
+    margin-left: 30px;
+}
+  .header__auth-btn {
+    margin-right: 30px;
   }
+}
   
 @media (max-width: 767px) {
-    .header {
-      width: calc(100% - 60px);
-    }
+  .header__logo { 
+    margin-left: 20px;
+}
+  .header__auth-btn {
+    margin-right: 20px;
   }
+}
   
 @media (max-width: 425px) {
-    .header {
-      width: 100%;
-      margin-top: 28px;
-      margin-bottom: 39px;
-    }
+  .header__logo { 
+    margin-left: 14px;
+}
 
-    .header__logo {
-        width: 106px;
-        height: 25px;
-        margin-left: 27px;
-        margin-bottom: 30px;
-    }
+  .header__auth-text {
+    font-size: 10px;
   }
+
+  .header__auth-btn {
+    margin: 24px 14px 24px 14px;
+    font-size: 10px;
+    width: 54px;
+    height: 26px;
+  }
+}
