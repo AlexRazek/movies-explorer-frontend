@@ -75,7 +75,6 @@
     background-repeat: no-repeat;
     background-position: center;
     background-color: lightgray 50%;
-    cursor: pointer;
 }
 
 @media (max-width: 1023px) {

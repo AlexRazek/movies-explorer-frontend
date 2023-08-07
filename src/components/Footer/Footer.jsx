@@ -9,8 +9,8 @@ const Footer = (props) => {
         <div className="footer__container">
             <p className="footer__copyright">© 2023</p>
             <nav className="footer__link-container">
-                <a href="https://github.com/" className="footer__link">Яндекс.Практикум</a>
-                <a href="https://github.com/" className="footer__link">Github</a> 
+                <a href="https://github.com/" className="footer__link link__hover">Яндекс.Практикум</a>
+                <a href="https://github.com/" className="footer__link link__hover">Github</a> 
             </nav>
         </div>
     </section>

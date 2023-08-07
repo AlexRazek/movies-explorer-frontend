@@ -1,10 +1,12 @@
 import "../../index.css";
 // import React, { useEffect, useState } from "react";
-import { Route, Routes } from "react-router-dom";
+import React, { useState } from "react";
+import { Route, Routes, Navigate } from "react-router-dom";
 // import { Route, Routes, Navigate, useNavigate} from "react-router-dom";
 // import ProtectedRouteElement from "./ProtectedRoute.js";
+import * as auth from "../../utils/auth";
 import './App.css';
-// import Header from "../Header/Header";
+import Header from "../Header/Header";
 import Main from "../Main/Main";
 import Movies from "../Movies/Movies";
 import SavedMovies from "../SavedMovies/SavedMovies";
@@ -16,24 +18,53 @@ import Login from "../Login/Login";
 import Footer from "../Footer/Footer";
 
 function App() {
-  // const [loggedIn, setLoggedIn] = useState(true);
+  const [loggedIn, setLoggedIn] = useState(true);
+  // const [currentUser, setCurrentUser] = useState({});
+
+
+function outLogged () {
+    auth.registerOut()
+      .then(() => {
+        setLoggedIn(false);
+      })
+      .catch((err) => {
+        console.log(`Ошибка при выходе из аккаунта: ${err}`); // выведем ошибку в консоль
+    })
+  }
+
 
   return (
     // <CurrentUserContext.Provider value={currentUser}>
       <div className="root">
         <Routes>
-          {/* <Route
+          <Route
               path="*"
               element={
                 loggedIn ? <Navigate to="/" /> : <Navigate to="/signin" />
               }
-          /> */}
+          />
           <Route
             exact
             path="/"
             element={
               <>
-                <Main/>
+                <Header
+                    loggedIn={loggedIn}
+                    // userEmail={userEmail}
+                    setLoggedIn={setLoggedIn}
+                    onSignOut={outLogged}
+                    textReg={"Регистрация"}
+                    textEntrance={"Войти"}
+                    // textMovies={"Фильмы"}
+                    // textSaveMovies={"Сохранённые фильмы"}
+                    routeMain={"/"}
+                    routeReg={"/signup"}
+                    routeEntrance={"/signin"}
+                    // routeMovies={"/movies"}
+                    // routeSaveMovies={"/saved-movies"}
+                  />
+                <Main/> 
+                <Footer /> 
               </>
             }
           />
@@ -42,7 +73,20 @@ function App() {
             path="/movies"
             element={
               <>
+               <Header
+                    loggedIn={loggedIn}
+                    // userEmail={userEmail}
+                    setLoggedIn={setLoggedIn}
+                    onSignOut={outLogged}
+                    textMovies={"Фильмы"}
+                    routeMovies={"/movies"}
+                    textSaveMovies={"Сохранённые фильмы"}
+                    routeSaveMovies={"/saved-movies"}
+                    textAccount={"Аккаунт"}
+                    routeAccount={"/profile"}
+                  />
                 <Movies/>
+                <Footer />
               </>
             }
           />
@@ -51,7 +95,20 @@ function App() {
             path="/saved-movies"
             element={
               <>
+                <Header
+                    loggedIn={loggedIn}
+                    // userEmail={userEmail}
+                    setLoggedIn={setLoggedIn}
+                    onSignOut={outLogged}
+                    textMovies={"Фильмы"}
+                    textSaveMovies={"Сохранённые фильмы"}
+                    routeMovies={"/movies"}
+                    routeSaveMovies={"/saved-movies"}
+                    textAccount={"Аккаунт"}
+                    routeAccount={"/profile"}
+                  />
                 <SavedMovies/>
+                <Footer />
               </>
             }
           />
@@ -60,7 +117,28 @@ function App() {
             path="/profile"
             element={
               <>
-                <Profile/>
+                <Header
+                  loggedIn={loggedIn}
+                  // userEmail={userEmail}
+                  setLoggedIn={setLoggedIn}
+                  onSignOut={outLogged}
+                  textMovies={"Фильмы"}
+                  textSaveMovies={"Сохранённые фильмы"}
+                  routeMovies={"/movies"}
+                  routeSaveMovies={"/saved-movies"}
+                  textAccount={"Аккаунт"}
+                  // isOpen={isOpen}
+                  // onClose={onClose}
+                  // name={"profile"}
+                  // type={"popup"}
+                  // onSubmit={handleSubmit}
+                />
+                <Profile
+                  labelName={"Имя"}
+                  labelEmail={"Email"}
+                  buttonTitle={"Редактировать"}
+                  buttonText={"Выйти из аккаунта"}
+                />
               </>
             }
           />
@@ -93,7 +171,6 @@ function App() {
             }
           />
         </Routes>
-        <Footer />
         </div>
     // </CurrentUserContext.Provider>
     );
