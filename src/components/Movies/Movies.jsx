@@ -17,7 +17,14 @@ function Movies(props) {
   return (
     <section className="movies">
         <SearchForm text={"Найти"}/>
-        <MoviesCardList cards={cards} text={"Ещё"}/>
+        <MoviesCardList cards={cards}/>
+        <div className="elements__more-container">      
+          <button 
+            type="button" 
+            className="elements__more">
+            {props.textMore}
+          </button> 
+        </div>
     </section> 
   );
 }

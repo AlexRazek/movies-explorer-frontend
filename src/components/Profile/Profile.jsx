@@ -10,8 +10,8 @@ function Profile(props) {
   // Подписка на контекст, а именно на юзера
 //   const currentUser = useContext(CurrentUserContext);
 
-  const [name, setName] = useState("Василий");
-  const [email, setEmail] = useState("pochta@pochta.ru");
+  const [name, setName] = useState("Виталий");
+  const [email, setEmail] = useState("pochta@yandex.ru");
 
   // После загрузки текущего пользователя из API
   // его данные будут использованы в управляемых компонентах.
@@ -28,22 +28,22 @@ function Profile(props) {
     setEmail(e.target.value);
   }
 
-//   function handleSubmit(e) {
-//     // Запрещаем браузеру переходить по адресу формы
-//     e.preventDefault();
-//     // Передаём значения управляемых компонентов во внешний обработчик
-//     props.onUpdateUser({
-//       name,
-//       email,
-//     });
-//   }
+  // function handleSubmit(e) {
+  //   // Запрещаем браузеру переходить по адресу формы
+  //   e.preventDefault();
+  //   // Передаём значения управляемых компонентов во внешний обработчик
+  //   props.onUpdateUser({
+  //     name,
+  //     email,
+  //   });
+  // }
 
   return (
     <>
      <section className="profile">
         <h2 className="profile__name">Привет, {name}!</h2>
         <form className="profile__form">
-        <label for="nameProfile" className="profile__label">
+            <label htmlFor="nameProfile" className="profile__label">
             {props.labelName}
             <input
                 type="text"
@@ -59,7 +59,7 @@ function Profile(props) {
             />
             </label>
             <div className="profile__border-bottom"></div>
-            <label for="emailProfile" className="profile__label">
+            <label htmlFor="emailProfile" className="profile__label">
                 {props.labelEmail}
             <input
                 type="text"
@@ -78,6 +78,7 @@ function Profile(props) {
             <button
                 type="submit"
                 // disabled={false}
+                onClick={props.onUpdateUser}
                 aria-label="редактировать профиль"
                 className="profile__submit-btn"
             >
@@ -88,7 +89,7 @@ function Profile(props) {
                 id="btn-logout"
                 onClick={props.onSignOut}
                 aria-label="выйти из аакаунта"
-                className="profile__closed"
+                className="profile__logout"
                 >
                 {props.buttonText || 'Выйти из аккаунта'}
             </button>    

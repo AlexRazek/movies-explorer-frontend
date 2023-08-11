@@ -75,6 +75,45 @@
     transition: opacity 1s linear;
 }
 
+.element__like_active {
+    margin-left: 20px;
+    margin-right: 0;
+    background: url("../../images/heard-red.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: none;
+    opacity: 1;
+    cursor: pointer;
+    color: black;
+    width: 24px;
+    height: 24px;
+}
+
+.element__like_active:hover {
+    opacity: 1;
+}
+
+.element__save-delete {
+    margin-left: 20px;
+    margin-right: 0;
+    padding: 0;
+    background: url("../../images/close-mini.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 24px;
+    height: 24px;
+    border: none;
+    opacity: 0;
+    cursor: pointer;
+    outline: none;
+    /* background-color: black; */
+}
+
+.element__save-delete:hover {
+    opacity: 1;
+}
+
+
 .element__title-duration {
     color: #8B8B8B;
     font-family: Inter;
@@ -101,21 +140,6 @@
     justify-self: end;
   } */
   
-
-
-.element__like_active {
-    background: url("../../images/heard-red.svg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    border: none;
-    opacity: 1;
-    cursor: pointer;
-    color: black;
-}
-
-.element__like_active:hover {
-    opacity: 1;
-}
 
 /* .element__like-counter {
     margin: 0 auto;

@@ -26,9 +26,6 @@ function MoviesCardList(props) {
           />
         ))}
     </section>
-    <div className="elements__more-container">      
-      <button type="button" className="elements__more">{props.text}</button> 
-    </div>
     </>
   );
 }

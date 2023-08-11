@@ -20,8 +20,9 @@ function SavedMovies(props) {
         <SearchForm text={"Найти"}/>
         <MoviesCardList 
             cards={cardsShort} 
-            text={"Ещё"}
-            />
+        />
+        <div className="saveddevider">
+        </div> 
     </section> 
   );
 }

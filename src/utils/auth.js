@@ -33,7 +33,7 @@ export const authorize = (email, password) => {
   }).then(resResponse);
 };
 
-export const registerOut = (email, password) => {
+export const registerOut = (name, email) => {
   return fetch(`${BASE_URL}/signout`, {
     method: "POST",
     headers: {
@@ -41,7 +41,7 @@ export const registerOut = (email, password) => {
       "Content-Type": "application/json",
     },
     credentials: "include",
-    body: JSON.stringify({ email, password }),
+    body: JSON.stringify({ name, email }),
   }).then(resResponse);
 };
 

@@ -36,6 +36,12 @@
     transition: opacity 1s linear;
 }
 
+.button__save {
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+}
+
 .link__hover {
     cursor: pointer;
 }
@@ -48,6 +54,10 @@
 
 .display__block {
     display: block;
+}
+
+.text__red {
+    color: #EE3465;
 }
 
 /* .red__block {

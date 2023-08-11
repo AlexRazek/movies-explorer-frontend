@@ -1,4 +1,4 @@
-import Api from "../utils/Api.js";
+import Api from "../utils/Api";
 
 export const api = new Api({
   url: "http://localhost:3000",
