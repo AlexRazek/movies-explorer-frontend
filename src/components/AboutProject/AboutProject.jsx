@@ -7,7 +7,6 @@ const AboutProject = (props) => {
   return (
     <section className="aboutproject">
         <h2 className="addparts__about">О проекте
-        {/* <h2 className="aboutproject__title">О проекте */}
             </h2>
         <div className="aboutproject__description">
             <div>

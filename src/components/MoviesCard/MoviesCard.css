@@ -36,7 +36,6 @@
     margin: 0;
     margin-left: 0;
     margin-top: 4px;
-    /* margin: 25px 0 31px 21px; */
     min-height: 32px;
     grid-column: 1;
     grid-row: 2;
@@ -47,17 +46,13 @@
     font-weight: 500;
     line-height: normal;
     place-self: center start;
-    /* width: 80%; */
     overflow: hidden;
-    /* white-space: nowrap; */
     text-overflow: ellipsis;
 }
 
 .element__like {
-    /* margin: 10px 0 0 20px; */
     margin-left: 20px;
     margin-right: 0;
-    /* margin-top: 10px; */
     padding: 0;
     background: url("../../images/heard-white.svg");
     background-repeat: no-repeat;
@@ -127,28 +122,45 @@
     margin-left: 0;
 }
 
-/* .element__like-container {
-    display: grid;
-    flex-direction: column;
-    row-gap: 3px;
-    grid-column: 1;
-    grid-row: 2;
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(2, 1fr);
-    width: 22px;
-    margin-right: 20px;
-    justify-self: end;
-  } */
-  
 
-/* .element__like-counter {
-    margin: 0 auto;
-    width: 10px;
-    height: 13px;
-    font-weight: 400;
-    font-size: 13px;
-    line-height: 16px;
-    text-align: center;
-    justify-self: center;
-    color: #000000;
-  } */
+@media (max-width: 1023px) {
+    .element {
+        max-width: 339px;
+        width: 100%;
+    }
+
+    .element__image {
+        height: 190px;
+        width: 339px;
+      }
+
+    .element__title-container {
+        width: 339px;
+    }  
+}
+
+@media (max-width: 767px) {
+    .element {
+        max-width: 300px;
+        width: 100%;
+    }
+
+    .element__image {
+        height: 168px;
+        width: 300px;
+      }
+    .element__title {
+        font-size: 12px;
+        margin-top: 6px;
+    }
+
+    .element__title-container {
+        width: 100%;
+        padding-bottom: 11px;
+    }  
+
+    .element__title-duration {
+        font-size: 10px;
+    }
+
+}

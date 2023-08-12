@@ -5,10 +5,8 @@ import "./SavedMovies.css";
 // import Preloader from "../Preloader/Preloader";
 import MoviesCardList from "../MoviesCardList/MoviesCardList"; 
 import SearchForm from "../SearchForm/SearchForm";
-// import MoviesCard from "../MoviesCard/MoviesCard";
-// import Header from "../Header/Header";
 import { cardsShort } from "../../utils/constants";
-// import Footer from "../Footer/Footer";
+
 
 // import { CurrentUserContext } from "../contexts/CurrentUserContext";
 
@@ -17,6 +15,7 @@ function SavedMovies(props) {
 
   return (
     <section className="movies">
+        {/* <Preloader/> */}
         <SearchForm text={"Найти"}/>
         <MoviesCardList 
             cards={cardsShort} 

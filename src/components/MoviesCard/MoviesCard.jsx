@@ -45,7 +45,6 @@ function MoviesCard(props) {
           />)
             }
         </div>
-        {/* <p className="element__like-counter">{props.likes}</p> */}
         <p className="element__title-duration">{props.duration}</p>
     </div>
     </>

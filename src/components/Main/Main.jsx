@@ -7,7 +7,6 @@ import "./Main.css"
 // import Profile from "../Profile/Profile";
 import AboutMe from "../AboutMe/AboutMe";
 import Portfolio from "../Portfolio/Portfolio";
-// import Header from "../Header/Header";
 
 // import { CurrentUserContext } from "../contexts/CurrentUserContext";
 

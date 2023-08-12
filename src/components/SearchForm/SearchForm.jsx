@@ -5,7 +5,6 @@ import "./SearchForm.css";
 
 import searching_icon from "../../images/searching-icon.svg";
 import FilterCheckbox from "../SearchForm/FilterCheckbox/FilterCheckbox"
-// import AddParts from "../AddParts";
 
 const SearchForm = (props) => {
   return (
@@ -35,36 +34,3 @@ const SearchForm = (props) => {
   )};
 
   export default SearchForm;
-
-
-  // <form onSubmit={handleSubmit} className="auth__form">
-  //       <input
-  //         required
-  //         id="email"
-  //         className="auth__input"
-  //         placeholder="Email"
-  //         name="email"
-  //         type="email"
-  //         value={formValue.email}
-  //         onChange={handleChange}
-  //         minLength="5"
-  //         maxLength="30"
-  //       />
-  //       <input
-  //         required
-  //         id="password"
-  //         className="auth__input"
-  //         placeholder="Пароль"
-  //         name="password"
-  //         type="password"
-  //         value={formValue.password}
-  //         onChange={handleChange}
-  //         minLength="6"
-  //         maxLength="30"
-  //       />
-  //       <div className="auth__button-container">
-  //         <button type="submit" className="auth__link">
-  //           Войти
-  //         </button>
-  //       </div>
-  //     </form>

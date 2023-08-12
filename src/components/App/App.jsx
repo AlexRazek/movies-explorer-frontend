@@ -40,58 +40,6 @@ function App() {
         });
     }
   
-    //функция зактрытия разных popup
-    // function closeAllPopups() {
-    //   setisAddPlacePopupOpen(false);
-    //   setisEditAvatarPopupOpen(false);
-    //   setisEditProfilePopupOpen(false);
-    //   setselectedCard(false);
-    //   setisInfoTooltipOpen(false);
-    // }
-  
-    //вход в аккаунт
-    // function handleLogin(email, password) {
-    //   if (!email || !password) {
-    //     return;
-    //   }
-    //   auth
-    //     .authorize(email, password)
-    //     .then((data) => {
-    //       if (data.token) {
-    //         // setuserEmail(email); 
-    //         // localStorage.setItem("jwt", data.token);
-    //         handleLoginSet();
-    //         navigate("/");
-    //       }
-    //     })
-    //     .catch(() => {
-    //       // setnoticeMassage({image: auth_error, text: "Что-то пошло не так! Попробуйте ещё раз."});
-    //       // setisInfoTooltipOpen(true);
-    //       setisRegister(false);
-    //     });
-    // };
-  
-    //регистрация
-  // function handleRegister (name, email, password) {
-  //     if (password){
-  //       auth.register
-  //       (
-  //         name,
-  //         email, 
-  //         password
-  //         )
-  //       .then(() => {
-  //         setisRegister(true);
-          // setisInfoTooltipOpen(true);
-          // setnoticeMassage({image: auth_success, text: "Вы успешно зарегистрировались!"});
-        //   navigate('/signin');
-        //   })
-        // .catch(() => {
-          // setnoticeMassage({image: auth_error, text: "Что-то пошло не так! Попробуйте ещё раз."});
-          // setisInfoTooltipOpen(true) });
-      // })
-    // }
-
   function outLogged () {
       auth.registerOut()
         .then(() => {
@@ -124,9 +72,7 @@ function App() {
               <>
                 <Header
                     loggedIn={loggedIn}
-                    // userEmail={userEmail}
                     setLoggedIn={setLoggedIn}
-                    onSignOut={outLogged}
                     textReg={"Регистрация"}
                     textEntrance={"Войти"}
                     // textMovies={"Фильмы"}
@@ -134,8 +80,6 @@ function App() {
                     routeMain={"/"}
                     routeReg={"/signup"}
                     routeEntrance={"/signin"}
-                    // routeMovies={"/movies"}
-                    // routeSaveMovies={"/saved-movies"}
                   />
                 <Main/> 
                 <Footer /> 
@@ -151,7 +95,6 @@ function App() {
                     loggedIn={loggedIn}
                     // userEmail={userEmail}
                     setLoggedIn={setLoggedIn}
-                    onSignOut={outLogged}
                     textMovies={"Фильмы"}
                     routeMovies={"/movies"}
                     textSaveMovies={"Сохранённые фильмы"}
@@ -173,9 +116,7 @@ function App() {
               <>
                 <Header
                     loggedIn={loggedIn}
-                    // userEmail={userEmail}
                     setLoggedIn={setLoggedIn}
-                    onSignOut={outLogged}
                     textMovies={"Фильмы"}
                     textSaveMovies={"Сохранённые фильмы"}
                     routeMovies={"/movies"}
@@ -195,7 +136,6 @@ function App() {
               <>
                 <Header
                   loggedIn={loggedIn}
-                  // userEmail={userEmail}
                   setLoggedIn={setLoggedIn}
                   onSignOut={outLogged}
                   textMovies={"Фильмы"}
@@ -203,11 +143,6 @@ function App() {
                   routeMovies={"/movies"}
                   routeSaveMovies={"/saved-movies"}
                   textAccount={"Аккаунт"}
-                  // isOpen={isOpen}
-                  // onClose={onClose}
-                  // name={"profile"}
-                  // type={"popup"}
-                  // onSubmit={handleSubmit}
                 />
                 <Profile
                   labelName={"Имя"}
@@ -234,10 +169,6 @@ function App() {
                   questionReg={"Уже зарегистрированы?"}
                   textReg={"Зарегистрироваться"}
                   titleReg={"Войти"}
-                  // onRegister={handleRegister}
-                  // setisRegister={setisRegister}
-                  //// setisInfoTooltipOpen={setisInfoTooltipOpen}
-                  // onRegister={handleRegister}
                 />
               </>
             }
@@ -246,7 +177,6 @@ function App() {
             path="/signin"
             element={
               <>
-                {/* <Header text={"Регистрация"} route={"/signup"} /> */}
                 <Login
                   // handleLoginSet={handleLoginSet}
                   // onLogin={handleLogin}

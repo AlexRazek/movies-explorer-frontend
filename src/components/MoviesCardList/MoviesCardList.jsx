@@ -1,5 +1,6 @@
 import "../../index.css";
 import React from "react";
+// import Preloader from "../Preloader/Preloader";
 import "./MoviesCardList.css";
 
 import MoviesCard from "../MoviesCard/MoviesCard";
@@ -11,6 +12,7 @@ function MoviesCardList(props) {
   return (
     <>
     <section className="elements" aria-label="элементы">
+        {/* <Preloader/> */}
         {props.cards.map((card) => (
           <MoviesCard
             key={card._id}

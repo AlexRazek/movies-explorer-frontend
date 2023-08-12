@@ -19,7 +19,6 @@ const Header = (props) => {
           className="header__logo">
         </Link>
         <section className="header__auth">
-          {/* <p className="header__auth-email">{props.userEmail}</p> */}
           <Link
             to={props.routeReg}
             className="header__auth-text link__hover"
@@ -30,16 +29,13 @@ const Header = (props) => {
           <Link
             to={props.routeEntrance}
             className="header__auth-btn button__hover"
-          //   onClick={props.onSignOut}
           >
             {props.textEntrance}
           </Link>
         </section>
         </header>
-      // </section>
      ) : ( 
       <header className="header">
-        {/* <p className="header__auth-email">{props.userEmail}</p> */}
         <Link 
           to="/"
           className="header__logo">
@@ -48,7 +44,6 @@ const Header = (props) => {
           to={props.routeMovies}
           className={`header__movies ${location.pathname === "/movies" &&
           "header__choise"}`}
-          // onClick={props.onSignOut}
         >
           {props.textMovies}
         </NavLink>
@@ -56,7 +51,6 @@ const Header = (props) => {
           to={props.routeSaveMovies}
           className={`header__saved-movies ${location.pathname === "/saved-movies" &&
           "header__choise"}`}
-        //   onClick={props.onSignOut}
         >
           {props.textSaveMovies}
         </NavLink>
@@ -66,8 +60,8 @@ const Header = (props) => {
           "header__choise"}`}
         //   onClick={props.onSignOut}
         >
-          {/* {props.textAccount} */}
         </NavLink>
+        <button  type="button" className="header__burger-menu"></button> 
         </header>
     )
     }
