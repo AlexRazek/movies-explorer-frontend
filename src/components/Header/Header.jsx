@@ -35,7 +35,8 @@ const Header = (props) => {
         </section>
         </header>
      ) : ( 
-      <header className="header">
+      // <header className="header" >
+      <header className={location.pathname === "/" ? "header header__color-firstpage" : "header"}>  
         <Link 
           to="/"
           className="header__logo">
@@ -61,7 +62,7 @@ const Header = (props) => {
         //   onClick={props.onSignOut}
         >
         </NavLink>
-        <button  type="button" className="header__burger-menu"></button> 
+        <button onClick={props.isOpen} className="header__burger-menu"></button> 
         </header>
     )
     }

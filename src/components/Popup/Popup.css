@@ -1,0 +1,155 @@
+.popup {
+    position: fixed;
+    display: flex;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    opacity: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    transition: opacity 3s, visibility 3s linear 0.3s;
+    visibility: hidden;
+    z-index: 2;
+    }
+
+@media (max-width: 1023px) {
+
+    .popup {
+        position: fixed;
+        display: flex;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        opacity: 0;
+        background-color: rgba(0, 0, 0, 0.3);
+        transition: opacity 3s, visibility 3s linear 0.3s;
+        visibility: hidden;
+        z-index: 2;
+    }
+
+    .popup_opened {
+        opacity: 1;
+        visibility: visible;
+        transition: opacity 3s, visibility 3s linear 0.3s;
+    }
+
+    .popup__closed {
+        position: fixed;
+        background: url("../../images/close.svg");
+        width: 30px;
+        height: 30px;
+        top: 23px;
+        right: 24px;
+        color: #FFF;
+        background-size: cover;
+        background-color: #202020;
+        border: none;
+        align-self: center;
+        justify-content: center;
+        cursor: pointer;
+        opacity: 1;
+    }
+    
+    .popup__closed:hover {
+        opacity: 0.7;
+    }
+
+    .popup__container {
+        position: absolute;
+        display: flex;
+        /* margin: 0; */
+        width: 520px;
+        height: 100%;
+        padding: 0;
+        top: 50%;
+        right: -34%;
+        /* left: 50%;
+        top: 50%; */
+        transform: translate(-50%,-50%);
+        background-color: #202020;
+        /* box-shadow: 0px 0px 25px rgba(0, 0, 0, 1); */
+        /* border-radius: 10px; */
+        flex-direction: column;
+        z-index: 3;
+        /* border: 1px solid white; */
+    }
+
+    .popup__menu {
+        margin: 0 auto;
+        margin-top: 159px;
+        margin-bottom: 90px;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .popup__link {
+        margin: 0 auto;
+        margin-bottom: 25px;
+        padding-bottom: 4px;
+        color: #FFF;
+        text-align: center;
+        font-feature-settings: 'clig' off, 'liga' off;
+        font-family: Inter;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+        z-index: 4;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    .popup__link:focus {
+        border-bottom: 2px solid #FFF;
+    }
+
+    .popup__link:nth-last-child(2) {
+        margin-bottom: 0;
+    }
+
+    .popup__accaunt {
+        width: 125px;
+        height: 40px;
+        margin: 0 auto;
+        margin-top: 605px;
+        background-image: url(../../images/account-logo.svg);
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+} 
+
+@media (max-width: 767px) {
+
+    .popup__container {
+        width: 320px;
+        right: -50%;
+    }
+
+    .popup__menu {
+        margin: 0 auto;
+        margin-top: 144px;
+        margin-bottom: 46px;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .popup__link {
+        margin: 0 auto;
+        margin-bottom: 18px;
+        padding-bottom: 7px;
+    }  
+    
+    .popup__accaunt {
+        margin-top: 425px;
+    }  
+    
+    .popup__closed {
+        top: 14px;
+        right: 15px;
+    }    
+}

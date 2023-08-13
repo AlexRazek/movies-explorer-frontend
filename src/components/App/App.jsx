@@ -13,6 +13,7 @@ import Profile from "../Profile/Profile";
 import Register from "../Register/Register";
 import Login from "../Login/Login";
 import NotFoundPage from "../NotFoundPage/NotFoundPage";
+import Popup from "../Popup/Popup";
 import * as auth from "../../utils/auth";
 import api from "../../utils/Api";
 
@@ -22,6 +23,8 @@ import Footer from "../Footer/Footer";
 function App() {
   const [loggedIn, setLoggedIn] = useState(true);
   const [currentUser, setCurrentUser] = useState({});
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+
   // const [isRegister, setisRegister] = useState(false);
 
   // const navigate = useNavigate();
@@ -38,6 +41,14 @@ function App() {
         .catch((err) => {
           console.log(`Ошибка при обновлении данных пользователя: ${err}`); // выведем ошибку в консоль
         });
+    }
+
+  function openPopup() {
+    setIsPopupOpen(true);
+    }
+
+  function closePopup() {
+      setIsPopupOpen(false);
     }
   
   function outLogged () {
@@ -75,6 +86,8 @@ function App() {
                     setLoggedIn={setLoggedIn}
                     textReg={"Регистрация"}
                     textEntrance={"Войти"}
+                    isOpen={openPopup}
+                    onClose={closePopup}
                     // textMovies={"Фильмы"}
                     // textSaveMovies={"Сохранённые фильмы"}
                     routeMain={"/"}
@@ -93,8 +106,9 @@ function App() {
               <>
                <Header
                     loggedIn={loggedIn}
-                    // userEmail={userEmail}
                     setLoggedIn={setLoggedIn}
+                    isOpen={openPopup}
+                    onClose={closePopup}
                     textMovies={"Фильмы"}
                     routeMovies={"/movies"}
                     textSaveMovies={"Сохранённые фильмы"}
@@ -117,6 +131,8 @@ function App() {
                 <Header
                     loggedIn={loggedIn}
                     setLoggedIn={setLoggedIn}
+                    isOpen={openPopup}
+                    onClose={closePopup}
                     textMovies={"Фильмы"}
                     textSaveMovies={"Сохранённые фильмы"}
                     routeMovies={"/movies"}
@@ -194,6 +210,18 @@ function App() {
             }
           />
         </Routes>
+        <Popup 
+          isOpen={isPopupOpen}
+          onClose={closePopup}
+          textMain={"Главная"}
+          textMovies={"Фильмы"}
+          textSaveMovies={"Сохранённые фильмы"}
+          routeMain={"/"}
+          routeMovies={"/movies"}
+          routeSaveMovies={"/saved-movies"}
+          textAccount={"Аккаунт"}
+          routeAccount={"/profile"}
+                    />
         </div>
     </CurrentUserContext.Provider>
     );
