@@ -1,7 +1,7 @@
 import "../../index.css";
 import "./MoviesCard.css";
 import { React, useState } from "react";
-import { useLocation } from "react-router";
+import { useLocation } from "react-router-dom";
 
 
 // import React, { useContext } from "react";
