@@ -21,7 +21,7 @@ import { CurrentUserContext } from "../../contexts/CurrentUserContext"
 import Footer from "../Footer/Footer";
 
 function App() {
-  const [loggedIn, setLoggedIn] = useState(true);
+  const [loggedIn, setLoggedIn] = useState(false);
   const [currentUser, setCurrentUser] = useState({});
   const [isPopupOpen, setIsPopupOpen] = useState(false);
 
