@@ -24,7 +24,7 @@ const SearchForm = (props) => {
               minLength="1"
               maxLength="220"
             />
-            <button type="submit" className="searchform__button">
+            <button type="submit" className="searchform__button button__hover">
                 {props.text}
             </button> 
           </form>

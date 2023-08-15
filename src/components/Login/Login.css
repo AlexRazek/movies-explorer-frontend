@@ -73,6 +73,7 @@
   .login__button {
     margin: 0 auto;
     margin-bottom: 16px;
+    border: none;
     border-radius: 3px;
     background: #4285F4;
     height: 45px;
@@ -175,15 +176,15 @@
   
 @media (max-width: 767px) {
     .login {
-        padding-top: 80px;
-        padding-bottom: 80px;
-        width: calc(100% - 100px);
+        padding-top: 222px;
+        padding-bottom: 222px;
+        width: calc(100% - 270px);
       }
-    .login__welcome {
+    /* .login__welcome {
         margin: 0 auto;
         margin-top: 50px;
         margin-bottom: 80px;
-    }
+    } */
 }
   
 @media (max-width: 425px) {

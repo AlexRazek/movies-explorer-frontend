@@ -26,7 +26,7 @@ function MoviesCard(props) {
 
   return (
     <>
-    <div className="element" key={props._id}>
+    <li className="element" key={props._id}>
         <img src = {props.image} className="element__image" alt="картинка"/>
         <div className="element__title-container">
             <h2 className="element__title">{props.nameRU}</h2>
@@ -46,7 +46,7 @@ function MoviesCard(props) {
             }
         </div>
         <p className="element__title-duration">{props.duration}</p>
-    </div>
+    </li>
     </>
   );
 }

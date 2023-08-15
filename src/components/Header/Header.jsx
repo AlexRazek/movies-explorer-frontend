@@ -12,7 +12,7 @@ const Header = (props) => {
     <>
     { 
       !loggedIn ? (
-      <header className="header header__color-firstpage">
+      <header className="header header__color_firstpage">
         <Link 
           to="/"
           className="header__logo">
@@ -35,7 +35,7 @@ const Header = (props) => {
         </header>
      ) : ( 
       // <header className="header" >
-      <header className={location.pathname === "/" ? "header header__color-firstpage" : "header"}>  
+      <header className={location.pathname === "/" ? "header header__color_firstpage" : "header"}>  
         <Link 
           to="/"
           className="header__logo">
@@ -61,7 +61,7 @@ const Header = (props) => {
         //   onClick={props.onSignOut}
         >
         </NavLink>
-        <button onClick={props.isOpen} className="header__burger-menu"></button> 
+        <button type="button" onClick={props.isOpen} className="header__burger-menu"></button> 
         </header>
     )
     }

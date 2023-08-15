@@ -11,7 +11,7 @@ function MoviesCardList(props) {
 //   const currentUser = React.useContext(CurrentUserContext);
   return (
     <>
-    <section className="elements" aria-label="элементы">
+    <ul className="elements" aria-label="элементы">
         {/* <Preloader/> */}
         {props.cards.map((card) => (
           <MoviesCard
@@ -27,7 +27,7 @@ function MoviesCardList(props) {
             // likes={card.likes.length}
           />
         ))}
-    </section>
+    </ul>
     </>
   );
 }

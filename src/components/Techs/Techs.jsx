@@ -7,7 +7,7 @@ import "../../index.css";
 const Techs = (props) => {
   return (
     <section className="techs">
-    <h2 className="addparts__about addparts__margin-top">Технологии
+    <h2 className="addparts__about addparts__margin_top">Технологии
     </h2>
     <div className="techs__description">
       <h3 className="techs__description-text">7 технологий

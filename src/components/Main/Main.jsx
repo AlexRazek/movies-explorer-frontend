@@ -15,7 +15,7 @@ function Main(props) {
 
   return (
     <>
-        <main>
+        <main className="main">
             <Promo/>
             <AboutProject/>
             <Techs/>

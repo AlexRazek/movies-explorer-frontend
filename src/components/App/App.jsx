@@ -95,7 +95,7 @@ function App() {
                     routeEntrance={"/signin"}
                   />
                 <Main/> 
-                <Footer /> 
+                <Footer/> 
               </>
             }
           />
@@ -119,7 +119,7 @@ function App() {
                 <Movies
                   textMore={"Ещё"}
                 />
-                <Footer />
+                <Footer/>
               </>
             }
           />
@@ -141,7 +141,7 @@ function App() {
                     routeAccount={"/profile"}
                   />
                 <SavedMovies/>
-                <Footer />
+                <Footer/>
               </>
             }
           />
