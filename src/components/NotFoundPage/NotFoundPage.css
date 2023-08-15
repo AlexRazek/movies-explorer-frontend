@@ -12,7 +12,7 @@
     margin: 0 auto;
     color: #FFF;
     text-align: center;
-    font-family: Inter;
+    font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
     font-size: 140px;
     font-style: normal;
     font-weight: 400;
@@ -25,7 +25,7 @@
     margin-bottom: 184px;
     color: #FFF;
     text-align: center;
-    font-family: Inter;
+    font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
@@ -35,13 +35,19 @@
 .notfoundpage__link {
     color: #4285F4;
     text-align: center;
-    font-family: Inter;
+    font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
     text-decoration: none;
     cursor: pointer;
+}
+
+.notfoundpage__link:hover {
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 1s linear;
 }
 
 @media (max-width: 1023px) {

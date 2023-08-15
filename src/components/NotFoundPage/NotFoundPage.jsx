@@ -15,7 +15,7 @@ return (
         <p className="notfoundpage__text">{props.text}</p>
         <Link 
             to="/" 
-            className="notfoundpage__link link__hover">{props.titleLink}
+            className="notfoundpage__link">{props.titleLink}
         </Link> 
     </section>
     </>

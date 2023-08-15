@@ -85,10 +85,10 @@ const Register = (props) => {
                 />
              <span className="register__imput-error passwordRegister-input-error">Что-то пошло не так...</span>
         <div className="register__button-container">
-          <button type="submit" onSubmit={handleSubmit} className="register__button button__hover">{props.textReg}</button>
+          <button type="submit" onSubmit={handleSubmit} className="register__button">{props.textReg}</button>
         </div>
       </form>
-        <p className="register__signin">{props.questionReg}<Link to="/signin" className="register__login-link link__hover">{props.titleReg}</Link></p>
+        <p className="register__signin">{props.questionReg}<Link to="/signin" className="register__login-link">{props.titleReg}</Link></p>
     </div>
   );
 }

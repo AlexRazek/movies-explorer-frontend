@@ -21,7 +21,7 @@ import { CurrentUserContext } from "../../contexts/CurrentUserContext"
 import Footer from "../Footer/Footer";
 
 function App() {
-  const [loggedIn, setLoggedIn] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(true);
   const [currentUser, setCurrentUser] = useState({});
   const [isPopupOpen, setIsPopupOpen] = useState(false);
 
@@ -88,9 +88,12 @@ function App() {
                     textEntrance={"Войти"}
                     isOpen={openPopup}
                     onClose={closePopup}
-                    // textMovies={"Фильмы"}
-                    // textSaveMovies={"Сохранённые фильмы"}
+                    textMovies={"Фильмы"}
+                    textSaveMovies={"Сохранённые фильмы"}
                     routeMain={"/"}
+                    routeMovies={"/movies"}
+                    routeSaveMovies={"/saved-movies"}
+                    routeAccount={"/profile"}
                     routeReg={"/signup"}
                     routeEntrance={"/signin"}
                   />

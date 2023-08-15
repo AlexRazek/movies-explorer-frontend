@@ -67,8 +67,8 @@ const Login = (props) => {
                 />
              <span className="login__imput-error passwordlogin-input-error">Что-то пошло не так...</span>
         <div className="login__button-container">
-          <button type="submit" onSubmit={handleSubmit} className="login__button button__hover">{props.textLog}</button>
-          <p className="login__signin">{props.questionLog}<Link to="/signup" className="login__login-link link__hover">{props.titlelog}</Link></p>
+          <button type="submit" onSubmit={handleSubmit} className="login__button">{props.textLog}</button>
+          <p className="login__signin">{props.questionLog}<Link to="/signup" className="login__login-link">{props.titlelog}</Link></p>
         </div>
       </form>
     </div>

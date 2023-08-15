@@ -1,13 +1,12 @@
 // import { Link } from "react-router-dom";
 import React from "react";
 import "./Techs.css"
-import "../AddParts/AddParts.css"
 import "../../index.css";
 
 const Techs = (props) => {
   return (
     <section className="techs">
-    <h2 className="addparts__about addparts__margin_top">Технологии
+    <h2 className="techs__about techs__about_margin-top">Технологии
     </h2>
     <div className="techs__description">
       <h3 className="techs__description-text">7 технологий

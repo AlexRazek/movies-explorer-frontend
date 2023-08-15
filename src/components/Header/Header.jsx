@@ -12,7 +12,7 @@ const Header = (props) => {
     <>
     { 
       !loggedIn ? (
-      <header className="header header__color_firstpage">
+      <header className="header header_color-firstpage">
         <Link 
           to="/"
           className="header__logo">
@@ -20,14 +20,14 @@ const Header = (props) => {
         <section className="header__auth">
           <Link
             to={props.routeReg}
-            className="header__auth-text link__hover"
+            className="header__auth-text"
             onClick={props.onSignOut}
           >
             {props.textReg}
           </Link>
           <Link
             to={props.routeEntrance}
-            className="header__auth-btn button__hover"
+            className="header__auth-btn"
           >
             {props.textEntrance}
           </Link>
@@ -35,7 +35,7 @@ const Header = (props) => {
         </header>
      ) : ( 
       // <header className="header" >
-      <header className={location.pathname === "/" ? "header header__color_firstpage" : "header"}>  
+      <header className={location.pathname === "/" ? "header header_color-firstpage" : "header"}>  
         <Link 
           to="/"
           className="header__logo">

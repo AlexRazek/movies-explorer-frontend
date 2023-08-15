@@ -7,6 +7,20 @@
 
 }
 
+.aboutMe__about {
+    color: #FFF;
+    font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.88px;
+    margin: 110px 70px 0px 70px;
+    border: none;
+    border-bottom: 1px solid #DADADA;
+    padding-bottom: 22px;
+}
+
 .aboutMe__container {
     margin: 66px 70px 101px 70px;
     display: flex;
@@ -24,7 +38,7 @@
 
 .aboutMe__description-name {
     color: #FFF;
-    font-family: Inter;
+    font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
     font-size: 50px;
     font-style: normal;
     font-weight: 400;
@@ -36,7 +50,7 @@
 .aboutMe__description-title {
     color: #FFF;
     font-feature-settings: 'clig' off, 'liga' off;
-    font-family: Inter;
+    font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
     font-size: 18px;
     font-style: normal;
     font-weight: 500;
@@ -50,7 +64,7 @@
     margin-bottom: 99px;
     color: #FFF;
     font-feature-settings: 'clig' off, 'liga' off;
-    font-family: Inter;
+    font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
@@ -59,12 +73,19 @@
 
 .aboutMe__description-link {
     color: #FFF;
-    font-family: Inter;
+    font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
     font-size: 14px;
     font-style: normal;
     font-weight: 500;
     line-height: normal;
     text-decoration: none;
+    cursor: pointer;
+}
+
+.aboutMe__description-link:hover {
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 1s linear;
 }
 
 .aboutMe__photo {
@@ -78,6 +99,10 @@
 }
 
 @media (max-width: 1023px) {
+    .aboutMe__about {
+        margin: 90px 50px 0px 50px;
+    }
+
     .aboutMe__container {
         margin: 66px 50px 90px 50px;
         align-items: center;
@@ -118,6 +143,12 @@
     }  
 
   @media (max-width: 767px) {
+    .aboutMe__about {
+        margin: 80px 30px 0px 30px;
+        padding-bottom: 24px;
+        font-size: 18px;
+        letter-spacing: -0.72px;
+    }
 
     .aboutMe__container {
         margin: 60px 14px 70px 14px;
@@ -160,3 +191,11 @@
         max-width: 292px;
     }
   }
+
+@media (max-width: 425px) {
+    .aboutMe__about {
+        margin: 70px 18px 0px 18px;
+        padding-bottom: 28px;
+        border-bottom: 1px solid #000;
+    }     
+} 

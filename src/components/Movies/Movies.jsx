@@ -15,7 +15,7 @@ function Movies(props) {
 //   const currentUser = React.useContext(CurrentUserContext);
 
   return (
-    <section className="movies">
+    <main className="movies">
         <SearchForm text={"Найти"}/>
         <MoviesCardList cards={cards}/>
         <div className="elements__more-container">      
@@ -25,7 +25,7 @@ function Movies(props) {
             {props.textMore}
           </button> 
         </div>
-    </section> 
+    </main> 
   );
 }
 

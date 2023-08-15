@@ -8,7 +8,7 @@ import FilterCheckbox from "../SearchForm/FilterCheckbox/FilterCheckbox"
 
 const SearchForm = (props) => {
   return (
-    <section className="searchform border__bottom">
+    <section className="searchform searchform_border-bottom">
         <div className="searchform__container">
           <form className="searchform__form">
            <img src={searching_icon} className="searchform__icon" alt="лупа" /> 
@@ -24,7 +24,7 @@ const SearchForm = (props) => {
               minLength="1"
               maxLength="220"
             />
-            <button type="submit" className="searchform__button button__hover">
+            <button type="submit" className="searchform__button">
                 {props.text}
             </button> 
           </form>

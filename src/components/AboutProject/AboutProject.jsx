@@ -1,12 +1,11 @@
 // import { Link } from "react-router-dom";
 import "./AboutProject.css"
-import "../AddParts/AddParts.css"
 import "../../index.css";
 
 const AboutProject = (props) => {
   return (
     <section className="aboutproject">
-        <h2 className="addparts__about">О проекте
+        <h2 className="aboutproject__about">О проекте
             </h2>
         <div className="aboutproject__description">
             <div>

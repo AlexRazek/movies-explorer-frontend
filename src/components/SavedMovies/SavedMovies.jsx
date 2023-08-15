@@ -14,7 +14,7 @@ function SavedMovies(props) {
 //   const currentUser = React.useContext(CurrentUserContext);
 
   return (
-    <section className="movies">
+    <main className="movies">
         {/* <Preloader/> */}
         <SearchForm text={"Найти"}/>
         <MoviesCardList 
@@ -22,7 +22,7 @@ function SavedMovies(props) {
         />
         <div className="saveddevider">
         </div> 
-    </section> 
+    </main> 
   );
 }
 
