@@ -1,3 +1,11 @@
+Дипломный проект, часть Frontend (MOVIES-EXPLORER-FRONTEND)
+
+Дизайн в Figma - dark-1
+
+ В ветке level-2, состояние авторизации регулируется стейтом 
+ const [loggedIn, setLoggedIn] = useState(false);
+ От этого зависят отображения элементов на страницах. 
+ 
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

@@ -1,0 +1,80 @@
+.notfoundpage {
+    margin: 0 auto;
+    padding-top: 246px;
+    padding-bottom: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* width: calc(100% - 840px); */
+}
+
+ .notfoundpage__title {
+    margin: 0 auto;
+    color: #FFF;
+    text-align: center;
+    font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+    font-size: 140px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+ }
+
+.notfoundpage__text {
+    margin: 0 auto;
+    margin-top: 5px;
+    margin-bottom: 184px;
+    color: #FFF;
+    text-align: center;
+    font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.notfoundpage__link {
+    color: #4285F4;
+    text-align: center;
+    font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.notfoundpage__link:hover {
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 1s linear;
+}
+
+@media (max-width: 1023px) {
+    .notfoundpage {
+        padding-top: 408px;
+        padding-bottom: 222px;
+    }
+}
+
+@media (max-width: 767px) {
+    .notfoundpage {
+        padding-top: 329px;
+        padding-bottom: 30px;
+    }
+
+    .notfoundpage__title {
+        font-size: 80px;
+     }
+
+    .notfoundpage__text {
+        margin-top: 10px;
+        margin-bottom: 284px;
+        font-size: 12px;
+    }
+
+    .notfoundpage__link {
+        font-size: 12px;
+    }
+}    
+
