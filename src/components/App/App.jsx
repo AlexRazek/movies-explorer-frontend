@@ -15,7 +15,8 @@ import Login from "../Login/Login";
 import NotFoundPage from "../NotFoundPage/NotFoundPage";
 import Popup from "../Popup/Popup";
 import * as auth from "../../utils/auth";
-import api from "../../utils/Api";
+import mainApi from "../../utils/MainApi";
+// import moviesApi from "../../utils/MoviesApi";;
 
 import { CurrentUserContext } from "../../contexts/CurrentUserContext"
 import Footer from "../Footer/Footer";
@@ -32,7 +33,7 @@ function App() {
 
     // обновление данных пользователя
   function handleUpdateUser(users) {
-      api
+      mainApi
         .editUserInfo(users)
         .then((user) => {
           setCurrentUser(user);
