@@ -4,6 +4,7 @@ import React from 'react';
 import {Link } from 'react-router-dom';
 import { namePattern, emailPattern } from "../../utils/constants";
 import useFormWithValidation from "../../hook/useFormValid";
+import Preloader from "../Preloader/Preloader"
 
 const Register = (props) => {
 
@@ -11,12 +12,13 @@ const Register = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // props.onRegister(values);
     props.onRegister(values.name, values.email, values.password);
 
   }
 
   return (
+    <>
+    {props.isPreloader ? <Preloader/> :
     <div className="register">
         <Link to="/" className="register__logo"></Link>
         <h2 className="register__welcome">
@@ -29,7 +31,6 @@ const Register = (props) => {
             <input 
                 id="nameRegister" 
                 className="register__input"
-                // placeholder="Имя"
                 name="name" 
                 type="text"
                 value={values.name || ''} 
@@ -51,7 +52,6 @@ const Register = (props) => {
             <input 
                 id="emailRegister" 
                 className="register__input"
-                // placeholder="Email"
                 name="email"
                 type="email" 
                 value={values.email || ''} 
@@ -100,6 +100,8 @@ const Register = (props) => {
       </form>
         <p className="register__signin">{props.questionReg}<Link to="/signin" className="register__login-link">{props.titleReg}</Link></p>
     </div>
+    }
+    </>
   );
 }
 

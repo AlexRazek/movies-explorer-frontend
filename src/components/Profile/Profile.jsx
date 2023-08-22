@@ -2,13 +2,13 @@ import "../../index.css";
 import "./Profile.css";
 import React, { useCallback, useContext, useEffect, useState } from "react";
 import { emailPattern, namePattern } from "../../utils/constants";
-// import React, { useContext } from "react";
 
 import Header from "../Header/Header";
+import Preloader from "../Preloader/Preloader"
 import useFormWithValidation from "../../hook/useFormValid";
-// import React, { useState, useEffect } from "react";
 
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
+import { useNavigate } from "react-router-dom";
 
 //делаем через useState
 function Profile(props) {
@@ -16,10 +16,8 @@ function Profile(props) {
   const currentUser = useContext(CurrentUserContext);
   const [isBlockForm, setIsBlockForm] = useState(false);
 
-  // const [userName, setUserName] = useState({name:currentUser.name});
-  // const [userEmail, setUserEmail] = useState({email:currentUser.email});
-  const { values, setValues, handleChange, isValid, errors } = useFormWithValidation(); 
-
+  const { values, setValues, handleChange, isValid, errors, resetForm } = useFormWithValidation(); 
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (currentUser) {
@@ -30,9 +28,8 @@ function Profile(props) {
   }
   }, [currentUser, setValues]);
 
-  // После загрузки текущего пользователя из API
-  // его данные будут использованы в управляемых компонентах.
-  const checkPossibleInput = useCallback(() => {
+  // проверка на совпадение данных в форме с данными пользоваателя 
+    const checkPossibleInput = useCallback(() => {
     if (currentUser.name !== values.name || currentUser.email !== values.email)
     {
       setIsBlockForm(true)
@@ -51,23 +48,16 @@ function Profile(props) {
       e.preventDefault();
       props.onUpdateUser(values.name, values.email);
       setIsBlockForm(false);
-
     }
-
-  //  нажимаем кнопку редактирования
-  // function handleChangeSubmit(e) {
-  //   // Запрещаем браузеру переходить по адресу формы
-  //     e.preventDefault();
-  //     setIsBlockForm(false)
-  //   }
-
-  // function handleName(e) {
-  //   setName(e.target.value);
-  // }
-
-  // function handleEmail(e) {
-  //   setEmail(e.target.value);
-  // }
+  
+  function hadleLogOut(e) {
+    e.preventDefault();
+    props.onSignOut();
+    resetForm();
+    props.setLoggedIn(false);
+    navigate('/');
+    localStorage.clear();
+  }
 
   return (
     <>
@@ -81,78 +71,79 @@ function Profile(props) {
           textSaveMovies={"Сохранённые фильмы"}
           textAccount={"Аккаунт"}
       />
-      <section className="profile">
-          <h2 className="profile__name">Привет, {currentUser.name}!</h2>
-          <form action={values.toString()} id="forminput_profile" className="profile__form">
-              <label htmlFor="nameProfile" className="profile__label">
-              {props.labelName}
-              <input
-                  id="nameProfile"
-                  className="profile__input"
-                  name="name"
-                  type="text"
-                  value={values.name || ''}
-                  onChange={handleChange}
-                  
-                  pattern={namePattern}
-                  required
-                  minLength="2"
-                  maxLength="30"
-              />
-              </label>
-              <div className="profile__border-bottom"></div>
+      {props.isPreloader ? <Preloader/> :
+        <section className="profile">
+            <h2 className="profile__name">Привет, {currentUser.name}!</h2>
+            <form action={values.toString()} id="forminput_profile" className="profile__form">
+                <label htmlFor="nameProfile" className="profile__label">
+                {props.labelName}
+                <input
+                    id="nameProfile"
+                    className="profile__input"
+                    name="name"
+                    type="text"
+                    value={values.name || ''}
+                    onChange={handleChange}
+                    pattern={namePattern}
+                    required
+                    minLength="2"
+                    maxLength="30"
+                />
+                </label>
+                <div className="profile__border-bottom"></div>
+                <span 
+                    id="profile__input-error"
+                    className={`profile__input-error ${!isValid ? "profile__input-error_active" : "profile__input-error"
+                        }`}>{errors.name}
+                </span>
+                <label htmlFor="emailProfile" className="profile__label">
+                    {props.labelEmail}
+                <input
+                    id="emailProfile"
+                    className="profile__input"
+                    name="email"
+                    type="text"
+                    value={values.email || '' }
+                    onChange={handleChange}
+                    pattern={emailPattern}
+                    required
+                    minLength="2"
+                    maxLength="25"
+                />
+                </label>
+                <span 
+                    id="profile__input-error"
+                    className={`profile__input-error ${!isValid ? "profile__input-error_active" : "profile__input-error"
+                        }`}>{errors.email}
+                </span>
+            <div className="profile__btn-container">
               <span 
-                  id="profile__input-error"
-                  className={`profile__input-error ${!isValid ? "profile__input-error_active" : "profile__input-error"
-                      }`}>{errors.name}
+                id="profile__text-error"
+                className={`${props.errorText ? "profile__text-error_active" : "profile__text-error"
+                        }`}>{props.errorText}
               </span>
-              <label htmlFor="emailProfile" className="profile__label">
-                  {props.labelEmail}
-              <input
-                  type="text"
-                  id="emailProfile"
-                  name="email"
-                  value={values.email || '' }
-                  onChange={handleChange}
-                  className="profile__input"
-                  pattern={emailPattern}
-                  required
-                  minLength="2"
-                  maxLength="25"
-              />
-              </label>
-              <span 
-                  id="profile__input-error"
-                  className={`profile__input-error ${!isValid ? "profile__input-error_active" : "profile__input-error"
-                      }`}>{errors.email}
-              </span>
-          <div className="profile__btn-container">
-            <span 
-              id="profile__text-error"
-              className={`${props.errorText ? "profile__text-error_active" : "profile__text-error"
-                      }`}>{props.errorText}
-            </span>
-              <button
-                  type="submit"
-                  onClick={handleSubmit}
-                  aria-label="редактировать профиль"
-                  className={`profile__submit-btn ${!isBlockForm || !isValid ? "profile__submit-btn_disabled" : " "
-                  }`}
-              >
-                  {props.buttonTitle}
-              </button>
-              <button
-                  type="button"
-                  id="btn-logout"
-                  onClick={props.onSignOut}
-                  aria-label="выйти из аккаунта"
-                  className="profile__logout"
-                  >
-                  {props.buttonText || 'Выйти из аккаунта'}
-              </button>    
-          </div> 
-          </form>   
-        </section>
+                <button
+                    type="submit"
+                    onClick={handleSubmit}
+                    aria-label="редактировать профиль"
+                    className={`profile__submit-btn ${!isBlockForm || !isValid ? "profile__submit-btn_disabled" : " "
+                    }`}
+                >
+                    {props.buttonTitle}
+                </button>
+                <button
+                    type="button"
+                    id="btn-logout"
+                    onClick={hadleLogOut}
+                    aria-label="выйти из аккаунта"
+                    className="profile__logout"
+                    >
+                    {props.buttonText || 'Выйти из аккаунта'}
+                </button>    
+            </div> 
+            </form>   
+          </section>
+      }
     </>
   );
 }

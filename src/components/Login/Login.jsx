@@ -4,27 +4,12 @@ import React from 'react';
 import {Link } from 'react-router-dom';
 import useFormWithValidation from "../../hook/useFormValid";
 import { emailPattern } from "../../utils/constants";
-
+import Preloader from "../Preloader/Preloader"
 
 
 const Login = (props) => {
 
   const { values, handleChange, errors, isValid } = useFormWithValidation(); 
-
-  // const [formValue, setFormValue] = useState({
-  //   email: '',
-  //   password: ''
-  // })
-
-  // const handleChange = (e) => {
-  //   const {name, value} = e.target;
-
-  //   setFormValue({
-  //     ...formValue,
-  //     [name]: value
-
-  //   });
-  // }
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -33,6 +18,8 @@ const Login = (props) => {
   }
 
   return (
+    <>
+    {props.isPreloader ? <Preloader/> :
     <div className="login">
         <Link to="/" className="login__logo"></Link>
         <h2 className="login__welcome">
@@ -97,6 +84,8 @@ const Login = (props) => {
         </div>
       </form>
     </div>
+    }
+    </>
   );
 }
 

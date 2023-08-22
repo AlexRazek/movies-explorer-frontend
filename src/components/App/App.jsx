@@ -24,6 +24,7 @@ function App() {
   // const currentUser = useContext(CurrentUserContext);
 
   const [loggedIn, setLoggedIn] = useState(false);
+  const [isPreloader, serIsPreloader] = useState(false);
   const [currentUser, setCurrentUser] = useState({});
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [isErrorText, setIsErrorText] = useState('');
@@ -49,7 +50,8 @@ function App() {
           setLoggedIn(true);
           setCurrentUser(data);
           // setuserEmail(info.email);
-          // navigate('/saved-movies');
+          navigate('/saved-movies')
+          ;
         }
       })
       .catch((err) => {
@@ -66,6 +68,7 @@ function App() {
 
   useEffect(() => {
     if(loggedIn) {
+      serIsPreloader(true)
       mainApi
         .getUserInfo()
         .then((userData) => {
@@ -74,40 +77,54 @@ function App() {
         })
         .catch((err) => {
           console.log(`Ошибка при загрузке информации о пользователе: ${err}`); // выведем ошибку в консоль
+        })
+        .finally(() => {
+          serIsPreloader(false);
         });
     }
   }, [loggedIn]);
 
   useEffect(() => {
+    // serIsPreloader(true)
     if(loggedIn) {
+      serIsPreloader(true)
       mainApi
         .getAllCards()
         .then((cardsData) => {
           setCards(cardsData);
-          // localStorage.setItem('cards', JSON.stringify(cardsData))
+          localStorage.setItem('cards', JSON.stringify(cardsData))
         })
         .catch((err) => {
           console.log(`Ошибка при загрузке карточек: ${err}`); // выведем ошибку в консоль
+        })
+        .finally(() => {
+          serIsPreloader(false);
         });
       }   
   }, [loggedIn]);
 
     // обновление данных пользователя
   function handleUpdateUser(name, email) {
+    serIsPreloader(true)
     mainApi
         .updateUserInfo(name, email)
         .then((user) => {
           setCurrentUser(user);
+          serIsPreloader(false)
           // closeAllPopups();
         })
         .catch((err) => {
           setIsErrorText('При обновлении профиля произошла ошибка.');
           console.log(`Ошибка при обновлении данных пользователя: ${err}`); // выведем ошибку в консоль
+        })
+        .finally(() => {
+          serIsPreloader(false);
         });
     }
 
    // регистрация
   function handleRegister ( name, email, password ) {
+    serIsPreloader(true);
     if (password){
       auth.register
       (
@@ -116,25 +133,21 @@ function App() {
         password
       )
       .then(() => {
-        // setisRegister(true);
-        // setisInfoTooltipOpen(true);
-        // setnoticeMassage({image: auth_success, text: "Вы успешно зарегистрировались!"});
         navigate('/signin');
         setIsErrorText('');
-        // outLogged({ name, email })
-
         })
       .catch((err) => {
         setIsErrorText('Пользователь с таким email уже существует.');
         console.log(`Ошибка при регистрации: ${err}`); // выведем ошибку в консоль
-
-        // setnoticeMassage({image: auth_error, text: "Что-то пошло не так! Попробуйте ещё раз."});
-        // setisInfoTooltipOpen(true) 
+      })
+      .finally(() => {
+        serIsPreloader(false);
       });
     }
   }
 
   function handleLogin(email, password) {
+    serIsPreloader(true)
     if (!email || !password) {
       return;
     }
@@ -146,7 +159,9 @@ function App() {
           // localStorage.setItem("jwt", data.token);
           handleLoginSet();
           setIsErrorText('');
+          serIsPreloader(false)
           navigate("/movies");
+          
         }
       })
       .catch((err) => {
@@ -158,7 +173,6 @@ function App() {
       });
   };
 
-
   function openPopup() {
       setIsPopupOpen(true);
     };
@@ -168,21 +182,10 @@ function App() {
     };
   
   function outLogged() {
-      // const returnUserData =JSON.parse(localStorage.getItem("userData"));
-      // localStorage.setItem('userData', JSON.stringify({name:userData.name, email:userData.email}))
-      // const name = localStorage.getItem('userData', {name});
-      // const email = localStorage.getItem({name:userData.name}); 
       auth
         .registerOut()
-      // auth.registerOut({name:returnUserData.name, email:returnUserData.email })
         .then(() => {
-          // if(data) {
-            setLoggedIn(false);
-            localStorage.removeItem('userData');
             setCurrentUser({});
-            localStorage.clear();
-            navigate("/");
-          // }
         })
         .catch((err) => {
           console.log(`Ошибка при выходе: ${err}`); // выведем ошибку в консоль
@@ -226,6 +229,7 @@ function App() {
                     onClose={closePopup}
                     textMore={"Ещё"}
                     cards={cards}
+                    isPreloader={isPreloader}
                     >
                 </ProtectedRouteElement>
             }
@@ -239,6 +243,7 @@ function App() {
                   loggedIn={loggedIn}
                   isOpen={openPopup}
                   onClose={closePopup}
+                  isPreloader={isPreloader}
                 >
               </ProtectedRouteElement>
             }
@@ -253,6 +258,7 @@ function App() {
                   loggedIn={loggedIn}
                   setLoggedIn={setLoggedIn}
                   onUpdateUser={handleUpdateUser}
+                  isPreloader={isPreloader}
                   labelName={"Имя"}
                   labelEmail={"E-mail"}
                   buttonTitle={"Редактировать"}
@@ -275,6 +281,7 @@ function App() {
                   titleReg={"Войти"}
                   onRegister={handleRegister}
                   errorText={isErrorText}
+                  isPreloader={isPreloader}
                 />
             }
           />
@@ -292,6 +299,7 @@ function App() {
                   textLog={"Войти"}
                   titlelog={"Регистрация"}
                   errorText={isErrorText}
+                  isPreloader={isPreloader}
                   //// setisRegister={setisRegister}
                   //// setisInfoTooltipOpen={setisInfoTooltipOpen}
                 />

@@ -1,14 +1,12 @@
 import "../../index.css";
 import React from "react";
-
 import "./SavedMovies.css";
-// import Preloader from "../Preloader/Preloader";
 import MoviesCardList from "../MoviesCardList/MoviesCardList"; 
 import SearchForm from "../SearchForm/SearchForm";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import { cardsShort } from "../../utils/constants";
-
+import Preloader from "../Preloader/Preloader"
 
 // import { CurrentUserContext } from "../contexts/CurrentUserContext";
 
@@ -25,15 +23,16 @@ function SavedMovies(props) {
           textSaveMovies={"Сохранённые фильмы"}
           textAccount={"Аккаунт"}
                     />
-      <main className="movies">
-          {/* <Preloader/> */}
-          <SearchForm text={"Найти"}/>
-          <MoviesCardList 
-              cards={cardsShort} 
-          />
-          <div className="saveddevider">
-          </div> 
-      </main> 
+      {props.isPreloader ? <Preloader/> :
+        <main className="movies">
+            <SearchForm text={"Найти"}/>
+            <MoviesCardList 
+                cards={cardsShort} 
+            />
+            <div className="saveddevider">
+            </div> 
+        </main> 
+      }
       <Footer/>
     </>
   );
