@@ -20,28 +20,28 @@ function Popup(props) {
           />
             <div className="popup__menu">
                 <Link 
-                    to={props.routeMain}
+                    to="/"
                     className="popup__link"
                     onClick={props.onClose}
                     >
                     {props.textMain}
                 </Link>
                 <Link
-                    to={props.routeMovies}
+                    to="/movies"
                     className="popup__link"
                     onSubmit={props.onClose}
                 >
                     {props.textMovies}
                 </Link>
                 <Link
-                    to={props.routeSaveMovies}
+                    to="/saved-movies"
                     className="popup__link"
                     onClick={props.onClose}
                 >
                 {props.textSaveMovies}
                 </Link>
                 <Link
-                    to={props.routeAccount}
+                    to="/profile"
                     className="popup__accaunt"
                     onClick={props.onClose}
                 //   onClick={props.onSignOut}

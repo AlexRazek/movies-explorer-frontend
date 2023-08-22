@@ -1,3 +1,6 @@
+export const emailPattern = "[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?";
+export const namePattern = "^([A-Za-z-']{3,30})|([А-Яа-я-']{3,30})$";
+
 export const cards = [
     { 
         _id: 1,
@@ -50,7 +53,7 @@ export const cards = [
     },
     { 
         _id: 8,
-        image: "https://cdn-st1.rtr-vesti.ru/vh/pictures/xw/438/539/8.jpg",
+        image: "http://s1.1zoom.ru/b5050/595/342546-svetik_2048x1152.jpg",
         nameRU: "Путешетсвие мрачной гусеницы",
         duration: "1ч 42м",
         likes: true,

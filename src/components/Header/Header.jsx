@@ -4,14 +4,14 @@ import { Link, NavLink, useLocation } from "react-router-dom";
 import "./Header.css"
 
 const Header = (props) => {
-  const loggedIn = props.loggedIn
+  // const loggedIn = props.loggedIn
   const location = useLocation();
 
 
   return (
     <>
     { 
-      !loggedIn ? (
+      !props.loggedIn ? (
       <header className="header header_color-firstpage">
         <Link 
           to="/"
@@ -19,14 +19,14 @@ const Header = (props) => {
         </Link>
         <section className="header__auth">
           <Link
-            to={props.routeReg}
+            to="/signup"
             className="header__auth-text"
             onClick={props.onSignOut}
           >
             {props.textReg}
           </Link>
           <Link
-            to={props.routeEntrance}
+            to="/signin"
             className="header__auth-btn"
           >
             {props.textEntrance}
@@ -41,21 +41,21 @@ const Header = (props) => {
           className="header__logo">
         </Link>
         <NavLink
-          to={props.routeMovies}
+          to="/movies"
           className={`header__movies ${location.pathname === "/movies" &&
           "header__choise"}`}
         >
           {props.textMovies}
         </NavLink>
         <NavLink
-          to={props.routeSaveMovies}
+          to="/saved-movies"
           className={`header__saved-movies ${location.pathname === "/saved-movies" &&
           "header__choise"}`}
         >
           {props.textSaveMovies}
         </NavLink>
         <NavLink
-          to={props.routeAccount}
+          to="/profile"
           className={`header__accaunt ${location.pathname === "/profile" &&
           "header__choise"}`}
         //   onClick={props.onSignOut}

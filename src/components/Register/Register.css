@@ -75,7 +75,7 @@
     /* opacity: 1; */
   }
 
-  .register__button {
+.register__button {
     margin: 0 auto;
     margin-bottom: 16px;
     border-radius: 3px;
@@ -93,13 +93,19 @@
     border: none;
   }
 
-  .register__button:hover {
+.register__button:hover {
     cursor: pointer;
     opacity: 0.8;
     transition: opacity 1s linear;
 } 
 
-  .register__signin {
+.register__button_disabled {
+    pointer-events: none;
+    background-color: #F8F8F8;
+    color: #C2C2C2;
+}
+
+.register__signin {
     margin: 0;
     margin-right: 2px;
     color: #8B8B8B;
@@ -111,7 +117,7 @@
     line-height: normal;
   }
 
-  .register__login-link {
+.register__login-link {
     color: #4285F4;
     margin: 0;
     margin-left: 6px;
@@ -126,13 +132,13 @@
     cursor: pointer;
   }
 
-  .register__login-link:hover {
+.register__login-link:hover {
     cursor: pointer;
     opacity: 0.7;
     transition: opacity 1s linear;
   }
 
-  .register__imput-error {
+.register__input-error {
     margin: 0;
     height: 12px;
     margin-bottom: 7px;
@@ -142,13 +148,14 @@
     font-weight: 400;
     line-height: normal;
     opacity: 0;
+    visibility: hidden;
   }
 
-  .register__imput-error:last-of-type {
+.register__input-error:last-of-type {
     margin-bottom: 0;
   }
 
-  .register__input-error_active {
+.register__input-error_active {
     margin: 0;
     margin-bottom: 7px;
     display: block;
@@ -161,11 +168,40 @@
     font-weight: 400;
     line-height: normal;
     opacity: 1;
+    visibility: visible;
 }
 
-.register__imput-error_active:last-of-type {
+.register__input-error_active:last-of-type {
     margin-bottom: 0;
-  }
+}
+
+.register__text-error {
+    color: #FF004C;
+    height: 14px;
+    text-align: center;
+    font-family: Inter;
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-bottom: 20px;
+    /* opacity: 0;
+    visibility: hidden; */
+}
+
+.register__text-error_active {
+    color: #FF004C;
+    height: 14px;
+    text-align: center;
+    font-family: Inter;
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-bottom: 20px;
+    opacity: 1;
+    visibility: visible;
+}
 
 @media (max-width: 1279px) {
     .register {

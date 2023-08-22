@@ -1,28 +1,35 @@
 import "../../index.css";
 import "../Login/Login.css"
-import React, {useState} from 'react';
+import React from 'react';
 import {Link } from 'react-router-dom';
+import useFormWithValidation from "../../hook/useFormValid";
+import { emailPattern } from "../../utils/constants";
+
+
 
 const Login = (props) => {
-  const [formValue, setFormValue] = useState({
-    email: 'pochta@yandex.ru',
-    password: ''
-  })
 
-  const handleChange = (e) => {
-    const {name, value} = e.target;
+  const { values, handleChange, errors, isValid } = useFormWithValidation(); 
 
-    setFormValue({
-      ...formValue,
-      [name]: value
+  // const [formValue, setFormValue] = useState({
+  //   email: '',
+  //   password: ''
+  // })
 
-    });
-  }
+  // const handleChange = (e) => {
+  //   const {name, value} = e.target;
+
+  //   setFormValue({
+  //     ...formValue,
+  //     [name]: value
+
+  //   });
+  // }
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // props.onLogin(formValue.email, formValue.password);
-    setFormValue({ email: "", password: "" });
+    props.onLogin(values.email, values.password);
+    // setFormValue({ email: "", password: "" });
   }
 
   return (
@@ -41,14 +48,19 @@ const Login = (props) => {
                 // placeholder="Email"
                 name="email"
                 type="email" 
-                value={formValue.email} 
+                value={values.email || ''} 
                 onChange={handleChange} 
+                pattern={emailPattern}
                 minLength="5"
                 maxLength="30"
                 autoFocus
                 required
                 />
-            <span className="login__imput-error emailLogin-input-error">Что-то пошло не так...</span>
+            <span 
+              id="login__input-error"
+              className={`login__input-error ${!isValid ? "login__input-error_active" : "login__input-error"
+                  }`}>{errors.email}
+            </span>
             <label htmlFor="passwordLogin" className="login__label">
                 {props.labelPassword} 
             </label>
@@ -58,16 +70,29 @@ const Login = (props) => {
                 // placeholder="Пароль"
                 name="password" 
                 type="password"
-                value={formValue.password} 
+                value={values.password || ''} 
                 onChange={handleChange}
                 minLength="6"
                 maxLength="30"
                 autoFocus
                 required
                 />
-             <span className="login__imput-error passwordlogin-input-error">Что-то пошло не так...</span>
+             <span 
+              id="login__input-error"
+              className={`login__input-error ${!isValid ? "login__input-error_active" : "login__input-error"
+                  }`}>{errors.password}
+            </span> 
         <div className="login__button-container">
-          <button type="submit" onSubmit={handleSubmit} className="login__button">{props.textLog}</button>
+            <span 
+              id="login__text-error"
+              className={`${props.errorText ? "login__text-error_active" : "login__text-error"
+                      }`}>{props.errorText}
+            </span>
+            <button id="login__button" type="submit" onSubmit={handleSubmit} className={`login__button ${!isValid ? "login__button_disabled" : " "
+                }`} disabled={!isValid} >{props.textLog}
+            </button>
+
+          {/* <button type="submit" onSubmit={handleSubmit} className="login__button">{props.textLog}</button> */}
           <p className="login__signin">{props.questionLog}<Link to="/signup" className="login__login-link">{props.titlelog}</Link></p>
         </div>
       </form>

@@ -93,7 +93,13 @@
     cursor: pointer;
     opacity: 0.8;
     transition: opacity 1s linear;
-}  
+}
+
+.login__button_disabled {
+    pointer-events: none;
+    background-color: #F8F8F8;
+    color: #C2C2C2;
+}
 
 .login__signin {
     margin: 0;
@@ -128,7 +134,7 @@
     transition: opacity 1s linear;
 }
 
-.login__imput-error {
+.login__input-error {
     margin: 0;
     height: 12px;
     margin-bottom: 7px;
@@ -138,9 +144,10 @@
     font-weight: 400;
     line-height: normal;
     opacity: 0;
+    visibility: hidden;
   }
 
-.login__imput-error:last-of-type {
+.login__input-error:last-of-type {
     margin-bottom: 0;
   }
 
@@ -149,7 +156,7 @@
     margin-bottom: 7px;
     display: block;
     padding: 0;
-    height: 12px;
+    height: 16px;
     color: #EE3465;
     font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
     font-size: 10px;
@@ -157,11 +164,40 @@
     font-weight: 400;
     line-height: normal;
     opacity: 1;
+    visibility: visible;
 }
 
-.login__imput-error_active:last-of-type {
+.login__input-error_active:last-of-type {
     margin-bottom: 0;
   }
+
+.login__text-error {
+    color: #FF004C;
+    height: 14px;
+    text-align: center;
+    font-family: Inter;
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-bottom: 20px;
+    /* opacity: 0;
+    visibility: hidden; */
+}
+
+.login__text-error_active {
+    color: #FF004C;
+    height: 14px;
+    text-align: center;
+    font-family: Inter;
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-bottom: 20px;
+    opacity: 1;
+    visibility: visible;
+}
 
 @media (max-width: 1279px) {
     .login {
