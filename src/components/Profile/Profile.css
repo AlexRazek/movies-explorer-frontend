@@ -63,7 +63,7 @@
     line-height: normal;
     opacity: 0;
     visibility: hidden;
-  }
+}
 
 .profile__input-error_active {
     margin: 0;
@@ -83,7 +83,7 @@
 
 .profile__input-error:last-of-type {
     margin-bottom: 0;
-  }
+}
 
 .profile__border-bottom {
     border-bottom: 1px solid #424242;
@@ -206,9 +206,6 @@
     }
 
     .profile__logout {
-        font-size: 12px; 
+        font-size: 12px;
     }
-}  
-
-
-
+}

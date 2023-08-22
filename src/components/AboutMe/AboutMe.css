@@ -42,7 +42,8 @@
     font-size: 50px;
     font-style: normal;
     font-weight: 400;
-    line-height: 58px; /* 116% */
+    line-height: 58px;
+    /* 116% */
     letter-spacing: -2px;
     margin: 0;
 }
@@ -54,7 +55,8 @@
     font-size: 18px;
     font-style: normal;
     font-weight: 500;
-    line-height: 20px; /* 111.111% */
+    line-height: 20px;
+    /* 111.111% */
     margin-top: 18px;
     margin-bottom: 26px;
 }
@@ -68,7 +70,8 @@
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
-    line-height: 22px; /* 157.143% */
+    line-height: 22px;
+    /* 157.143% */
 }
 
 .aboutMe__description-link {
@@ -114,14 +117,16 @@
 
     .aboutMe__description-name {
         font-size: 40px;
-        line-height: 40px; /* 100% */
+        line-height: 40px;
+        /* 100% */
         letter-spacing: -1.6px;
         max-width: 348px;
-    }   
-    
+    }
+
     .aboutMe__description-title {
         font-size: 12px;
-        line-height: 18px; /* 150% */
+        line-height: 18px;
+        /* 150% */
         margin-top: 16px;
         margin-bottom: 20px;
         max-width: 348px;
@@ -132,7 +137,8 @@
         margin-bottom: 87px;
         font-size: 12px;
         font-style: normal;
-        line-height: 18px; /* 150% */
+        line-height: 18px;
+        /* 150% */
         max-width: 364px;
     }
 
@@ -140,9 +146,9 @@
         width: 255px;
         height: 307px;
     }
-    }  
+}
 
-  @media (max-width: 767px) {
+@media (max-width: 767px) {
     .aboutMe__about {
         margin: 80px 30px 0px 30px;
         padding-bottom: 24px;
@@ -171,12 +177,13 @@
         letter-spacing: -1.2px;
         max-width: 292x;
         margin-top: 40px;
-    }   
-    
+    }
+
     .aboutMe__description-title {
         font-size: 11px;
         font-weight: 500;
-        line-height: 16px; /* 145.455% */
+        line-height: 16px;
+        /* 145.455% */
         margin-top: 20px;
         margin-bottom: 20px;
         max-width: 292px;
@@ -187,15 +194,16 @@
         margin-bottom: 40px;
         font-size: 11px;
         font-weight: 400;
-        line-height: 16px; /* 145.455% */
+        line-height: 16px;
+        /* 145.455% */
         max-width: 292px;
     }
-  }
+}
 
 @media (max-width: 425px) {
     .aboutMe__about {
         margin: 70px 18px 0px 18px;
         padding-bottom: 28px;
         border-bottom: 1px solid #000;
-    }     
-} 
+    }
+}

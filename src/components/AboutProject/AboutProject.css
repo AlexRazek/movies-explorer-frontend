@@ -57,7 +57,8 @@
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
-    line-height: 20px; /* 142.857% */
+    line-height: 20px;
+    /* 142.857% */
 }
 
 .aboutproject__description-subtext:last-child {
@@ -96,11 +97,12 @@
     font-size: 14px;
     font-style: normal;
     font-weight: 500;
-    line-height: 17px; /* 121.429% */
+    line-height: 17px;
+    /* 121.429% */
     color: #A0A0A0
 }
 
-.timeline_color_change { 
+.timeline_color_change {
     background-color: #3DDC84;
     color: black;
 }
@@ -109,7 +111,7 @@
 @media (max-width: 1279px) {
     .aboutproject__about {
         margin: 90px 50px 0px 50px;
-    } 
+    }
 
     .aboutproject__description {
         margin: 70px 50px 0 50px;
@@ -121,14 +123,15 @@
         margin-right: 30px;
         max-width: 319px;
     }
-    
+
 
     .aboutproject__description-subtext {
         max-width: 319px;
         font-size: 12px;
         font-style: normal;
         font-weight: 400;
-        line-height: 18px; /* 121.429% */
+        line-height: 18px;
+        /* 121.429% */
     }
 
     .aboutproject__timeline {
@@ -146,12 +149,13 @@
         font-size: 14px;
         font-style: normal;
         font-weight: 400;
-        line-height: 17px; /* 121.429% */
-        color:#A0A0A0;
+        line-height: 17px;
+        /* 121.429% */
+        color: #A0A0A0;
     }
 }
 
-  @media (max-width: 767px) {
+@media (max-width: 767px) {
     .aboutproject__about {
         margin: 80px 30px 0px 30px;
         padding-bottom: 24px;
@@ -178,10 +182,11 @@
         max-width: 284px;
         color: #FFF;
         font-size: 11px;
-        line-height: 16px; /* 145.455% */
+        line-height: 16px;
+        /* 145.455% */
         margin-right: 0;
-    }   
-    
+    }
+
     .aboutproject__timeline {
         margin: 60px 18px 70px 18px;
         grid-template-columns: 100px 184px;
@@ -201,13 +206,12 @@
         line-height: normal;
         max-height: 13px;
     }
-  }
+}
 
 @media (max-width: 425px) {
     .aboutproject__about {
         margin: 70px 18px 0px 18px;
         padding-bottom: 28px;
         border-bottom: 1px solid #000;
-    }       
-} 
-
+    }
+}

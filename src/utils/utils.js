@@ -10,7 +10,6 @@
 //   },
 // });
 
-
 // export const moviesApi = new MoviesApi({
 //   // url: "http://localhost:3000",
 //   url: "https://api.nomoreparties.co/beatfilm-movies",

@@ -70,13 +70,13 @@
 @media (max-width: 1023px) {
     .footer {
         padding: 79px 30px 20px 30px;
-    }   
+    }
 }
 
 @media (max-width: 767px) {
     .footer {
         padding: 75px 10px 20px 10px;
-    } 
+    }
 
     .footer__text {
         font-size: 12px;
@@ -106,5 +106,4 @@
     .footer__link {
         font-size: 12px;
     }
-}    
-
+}

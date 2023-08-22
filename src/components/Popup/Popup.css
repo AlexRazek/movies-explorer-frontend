@@ -10,7 +10,7 @@
     transition: opacity 3s, visibility 3s linear 0.3s;
     visibility: hidden;
     z-index: 2;
-    }
+}
 
 @media (max-width: 1023px) {
     .popup_opened {
@@ -35,7 +35,7 @@
         cursor: pointer;
         opacity: 1;
     }
-    
+
     .popup__closed:hover {
         opacity: 0.7;
     }
@@ -97,7 +97,7 @@
         background-repeat: no-repeat;
         background-size: cover;
     }
-} 
+}
 
 @media (max-width: 767px) {
 
@@ -119,14 +119,14 @@
         margin: 0 auto;
         margin-bottom: 18px;
         padding-bottom: 7px;
-    }  
-    
+    }
+
     .popup__accaunt {
         margin-top: 425px;
-    }  
-    
+    }
+
     .popup__closed {
         top: 14px;
         right: 15px;
-    }    
+    }
 }

@@ -42,7 +42,8 @@
     font-size: 50px;
     font-style: normal;
     font-weight: 400;
-    line-height: 58px; /* 116% */
+    line-height: 58px;
+    /* 116% */
     letter-spacing: -2px;
 }
 
@@ -56,7 +57,8 @@
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
-    line-height: 20px; /* 142.857% */
+    line-height: 20px;
+    /* 142.857% */
     letter-spacing: -0.56px;
 }
 
@@ -94,7 +96,7 @@
 @media (max-width: 1023px) {
     .techs__about {
         margin: 90px 50px 0px 50px;
-    } 
+    }
 
     .techs__description {
         margin: 80px 50px 0 50px;
@@ -103,10 +105,11 @@
     .techs__description-text {
         margin-bottom: 22px;
     }
-    
-   .techs__description-subtext {
+
+    .techs__description-subtext {
         font-size: 12px;
-        line-height: 18px; /* 150% */
+        line-height: 18px;
+        /* 150% */
         letter-spacing: -0.48px;
     }
 
@@ -142,12 +145,13 @@
         font-weight: 400;
         letter-spacing: -1.2px;
         margin-bottom: 24px;
-    }  
-    
+    }
+
     .techs__description-subtext {
         max-width: 292px;
         font-size: 11px;
-        line-height: 16px; /* 145.455% */
+        line-height: 16px;
+        /* 145.455% */
         letter-spacing: -0.44px;
     }
 
@@ -168,9 +172,9 @@
         margin: 70px 18px 0px 18px;
         padding-bottom: 28px;
         border-bottom: 1px solid #000;
-    }    
+    }
 
     .techs__about_margin-top {
         margin-top: 100px;
-        }    
-} 
+    }
+}

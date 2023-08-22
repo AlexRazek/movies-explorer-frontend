@@ -30,13 +30,13 @@
     font-style: normal;
     font-weight: 500;
     line-height: normal;
-  }
+}
 
-.login__form  {
+.login__form {
     display: flex;
     flex-direction: column;
     justify-content: center;
-  }
+}
 
 .login__input {
     padding-left: 0;
@@ -50,9 +50,9 @@
     border: none;
     border-bottom: 1px solid #424242;
     padding-bottom: 8px;
-    background-color: inherit; 
+    background-color: inherit;
     outline: none;
-} 
+}
 
 .login__label {
     margin-bottom: 5px;
@@ -69,7 +69,7 @@
     flex-direction: column;
     width: 100%;
     margin-top: 203px;
-  }
+}
 
 .login__button {
     margin: 0 auto;
@@ -87,7 +87,7 @@
     font-weight: 500;
     line-height: normal;
     cursor: pointer;
-  }
+}
 
 .login__button:hover {
     cursor: pointer;
@@ -111,7 +111,7 @@
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-  }
+}
 
 .login__login-link {
     color: #4285F4;
@@ -126,7 +126,7 @@
     opacity: 1;
     text-decoration: none;
     cursor: pointer;
-  }
+}
 
 .login__login-link:hover {
     cursor: pointer;
@@ -145,11 +145,11 @@
     line-height: normal;
     opacity: 0;
     visibility: hidden;
-  }
+}
 
 .login__input-error:last-of-type {
     margin-bottom: 0;
-  }
+}
 
 .login__input-error_active {
     margin: 0;
@@ -169,7 +169,7 @@
 
 .login__input-error_active:last-of-type {
     margin-bottom: 0;
-  }
+}
 
 .login__text-error {
     color: #FF004C;
@@ -208,8 +208,8 @@
         /* height: 505px; */
         padding-top: 232px;
         padding-bottom: 232px;
-      }
-    }  
+    }
+}
 
 @media (max-width: 1023px) {
     .login {
@@ -218,10 +218,11 @@
         flex-direction: column;
         padding-top: 232px;
         padding-bottom: 232px;
-      }
     }
-  
+}
+
 @media (max-width: 767px) {
+
     /* .login {
         width: 260px;
         padding-top: 222px;
@@ -252,6 +253,7 @@
         width: 100%;
         margin-top: 292px;
     }
+
     .login__button {
         margin: 0 auto;
         font-size: 12px;
@@ -262,7 +264,7 @@
 
     .login__signin {
         font-size: 12px;
-      }  
+    }
 
     .login__login-link {
         font-size: 12px;

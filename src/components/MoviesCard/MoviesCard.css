@@ -29,7 +29,7 @@
     justify-content: space-between;
     border-bottom: 1px solid #424242;
     padding-bottom: 13px;
-    background:#202020;
+    background: #202020;
 }
 
 .element__title {
@@ -132,11 +132,11 @@
     .element__image {
         height: 190px;
         width: 339px;
-      }
+    }
 
     .element__title-container {
         width: 339px;
-    }  
+    }
 }
 
 @media (max-width: 767px) {
@@ -148,7 +148,8 @@
     .element__image {
         height: 168px;
         width: 300px;
-      }
+    }
+
     .element__title {
         font-size: 12px;
         margin-top: 6px;
@@ -157,7 +158,7 @@
     .element__title-container {
         width: 100%;
         padding-bottom: 11px;
-    }  
+    }
 
     .element__title-duration {
         font-size: 10px;

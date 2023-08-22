@@ -8,10 +8,10 @@ import MoviesCard from "../MoviesCard/MoviesCard";
 // import { CurrentUserContext } from "../contexts/CurrentUserContext";
 
 function MoviesCardList(props) {
-//   const currentUser = React.useContext(CurrentUserContext);
+  //   const currentUser = React.useContext(CurrentUserContext);
   return (
     <>
-    <ul className="elements" aria-label="элементы">
+      <ul className="elements" aria-label="элементы">
         {/* <Preloader/> */}
         {props.cards.map((card) => (
           <MoviesCard
@@ -23,11 +23,11 @@ function MoviesCardList(props) {
             nameRU={card.nameRU}
             image={card.image}
             duration={card.duration}
-            // likes={(card.likes || [] ).length} 
+            // likes={(card.likes || [] ).length}
             // likes={card.likes.length}
           />
         ))}
-    </ul>
+      </ul>
     </>
   );
 }
