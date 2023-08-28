@@ -9,7 +9,7 @@ Backend https://api.alexmovie.nomoredomains.xyz
 
 Frontend https://alexmovie.nomoredomains.sbs
 
-ссылка на PR: https://github.com/AlexRazek/movies-explorer-frontend/compare/main...level-3
+ссылка на PR: https://github.com/AlexRazek/movies-explorer-frontend/pull/26
 
 
 # Getting Started with Create React App
