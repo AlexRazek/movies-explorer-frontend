@@ -35,6 +35,11 @@
   border: none
 }
 
+.elements__more_disabled{
+  visibility: hidden;
+  opacity: 0;
+}
+
 @media (max-width: 1279px) {
   .elements {
     grid-template-columns: repeat(3, 1fr);

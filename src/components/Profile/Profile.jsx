@@ -59,6 +59,7 @@ function Profile(props) {
     props.setLoggedIn(false);
     navigate("/");
     localStorage.clear();
+    localStorage.removeItem("savedМovies");
   }
 
   return (

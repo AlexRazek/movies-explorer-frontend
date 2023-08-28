@@ -19,19 +19,12 @@ function Main(props) {
     <>
       <Header
         loggedIn={props.loggedIn}
-        // setLoggedIn={setLoggedIn}
         isOpen={props.isOpen}
         onClose={props.onClose}
         textMovies={"Фильмы"}
         textSaveMovies={"Сохранённые фильмы"}
         textReg={"Регистрация"}
         textEntrance={"Войти"}
-        // routeMain={"/"}
-        // routeMovies={"/movies"}
-        // routeSaveMovies={"/saved-movies"}
-        // routeAccount={"/profile"}
-        // routeReg={"/signup"}
-        // routeEntrance={"/signin"}
       />
       <main className="main">
         <Promo />

@@ -95,8 +95,6 @@ const Login = (props) => {
               >
                 {props.textLog}
               </button>
-
-              {/* <button type="submit" onSubmit={handleSubmit} className="login__button">{props.textLog}</button> */}
               <p className="login__signin">
                 {props.questionLog}
                 <Link to="/signup" className="login__login-link">

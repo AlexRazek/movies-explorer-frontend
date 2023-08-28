@@ -15,40 +15,33 @@ import NotFoundPage from "../NotFoundPage/NotFoundPage";
 import Popup from "../Popup/Popup";
 import * as auth from "../../utils/auth";
 import { mainApi } from "../../utils/MainApi";
+import { filterAllMovies } from "../../utils/constants"
 
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import ProtectedRouteElement from "../ProtectedRoute/ProtectedRoute";
-// import Footer from "../Footer/Footer";
 
 function App() {
   // const currentUser = useContext(CurrentUserContext);
 
   const [loggedIn, setLoggedIn] = useState(false);
-  const [isPreloader, serIsPreloader] = useState(false);
+  const [isPreloader, setIsPreloader] = useState(false);
   const [currentUser, setCurrentUser] = useState({});
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [isErrorText, setIsErrorText] = useState("");
-  // const [isRegister, setisRegister] = useState(false);
-
-  const [cards, setCards] = useState([]);
-
-  // const [isRegister, setisRegister] = useState(false);
+  const [savedMovies, setSavedMovies] = useState([]);
 
   const navigate = useNavigate();
 
   // проверка токена пользователя - куки
   useEffect(() => {
-    // const jwt = localStorage.getItem("jwt");
-    // if (jwt) {
-    //   auth.checkToken(jwt)
     auth
       .checkToken()
       .then((data) => {
         if (data) {
           setLoggedIn(true);
           setCurrentUser(data);
-          // setuserEmail(info.email);
           navigate("/saved-movies");
+          navigate("/");
         }
       })
       .catch((err) => {
@@ -63,65 +56,65 @@ function App() {
     setLoggedIn(true);
   };
 
+  // подгружаем данные юзера
   useEffect(() => {
     if (loggedIn) {
-      serIsPreloader(true);
+      setIsPreloader(true);
       mainApi
         .getUserInfo()
         .then((userData) => {
           setCurrentUser(userData);
-          // localStorage.setItem('userData', JSON.stringify({name:userData.name, email:userData.email}))
+          localStorage.setItem('userData', JSON.stringify(userData))
         })
         .catch((err) => {
           console.log(`Ошибка при загрузке информации о пользователе: ${err}`); // выведем ошибку в консоль
         })
         .finally(() => {
-          serIsPreloader(false);
+          setIsPreloader(false);
         });
     }
   }, [loggedIn]);
 
+  // получаем сохраненные карточки фильмов
   useEffect(() => {
-    // serIsPreloader(true)
     if (loggedIn) {
-      serIsPreloader(true);
+      setIsPreloader(true);
       mainApi
-        .getAllCards()
-        .then((cardsData) => {
-          setCards(cardsData);
-          localStorage.setItem("cards", JSON.stringify(cardsData));
+        .getSavedCards()
+        .then((savedMoviesData) => {
+          setSavedMovies(savedMoviesData);
+          localStorage.setItem("userMovies", JSON.stringify(savedMoviesData));
         })
         .catch((err) => {
           console.log(`Ошибка при загрузке карточек: ${err}`); // выведем ошибку в консоль
         })
         .finally(() => {
-          serIsPreloader(false);
+          setIsPreloader(false);
         });
     }
   }, [loggedIn]);
 
   // обновление данных пользователя
   function handleUpdateUser(name, email) {
-    serIsPreloader(true);
+    setIsPreloader(true);
     mainApi
       .updateUserInfo(name, email)
       .then((user) => {
         setCurrentUser(user);
-        serIsPreloader(false);
-        // closeAllPopups();
+        setIsPreloader(false);
       })
       .catch((err) => {
         setIsErrorText("При обновлении профиля произошла ошибка.");
         console.log(`Ошибка при обновлении данных пользователя: ${err}`); // выведем ошибку в консоль
       })
       .finally(() => {
-        serIsPreloader(false);
+        setIsPreloader(false);
       });
   }
 
   // регистрация
   function handleRegister(name, email, password) {
-    serIsPreloader(true);
+    setIsPreloader(true);
     if (password) {
       auth
         .register(name, email, password)
@@ -134,13 +127,13 @@ function App() {
           console.log(`Ошибка при регистрации: ${err}`); // выведем ошибку в консоль
         })
         .finally(() => {
-          serIsPreloader(false);
+          setIsPreloader(false);
         });
     }
   }
 
   function handleLogin(email, password) {
-    serIsPreloader(true);
+    setIsPreloader(true);
     if (!email || !password) {
       return;
     }
@@ -148,20 +141,15 @@ function App() {
       .authorize(email, password)
       .then((data) => {
         if (data) {
-          // setuserEmail(email);
-          // localStorage.setItem("jwt", data.token);
           handleLoginSet();
           setIsErrorText("");
-          serIsPreloader(false);
+          setIsPreloader(false);
           navigate("/movies");
         }
       })
       .catch((err) => {
         setIsErrorText("Вы ввели неправильный логин или пароль");
         console.log(`Ошибка при регистрации: ${err}`);
-        // setnoticeMassage({image: auth_error, text: "Что-то пошло не так! Попробуйте ещё раз."});
-        // setisInfoTooltipOpen(true);
-        // setisRegister(false);
       });
   }
 
@@ -173,16 +161,61 @@ function App() {
     setIsPopupOpen(false);
   }
 
+  // выход из аккаунта
   function outLogged() {
     auth
       .registerOut()
       .then(() => {
         setCurrentUser({});
+        setLoggedIn(false);
+        localStorage.clear();
+        localStorage.removeItem("savedМovies");
       })
       .catch((err) => {
         console.log(`Ошибка при выходе: ${err}`); // выведем ошибку в консоль
       });
   }
+
+  // сохранени фильма из общего списка в сохраненные
+  function handleLikeforSaveMovies(movie) {
+    const savedMovie = savedMovies.find(function(item) {
+      return movie.id === item.movieId
+    });
+    if (savedMovie) {
+      console.log("Попытка добавить сохраненный ранее фильм");
+      return ;
+    }
+    mainApi
+      .addSavedCard(movie)
+      .then((newSavedItem) => {
+        setSavedMovies([newSavedItem, ...savedMovies]);
+        localStorage.setItem('userMovies',JSON.stringify(savedMovies))
+      })
+      .catch((err) => {
+        console.log(`Ошибка при сохранении фильма в сохраненные: ${err}`); // выведем ошибку в консоль
+      })
+  }
+
+  // удаление фильма из сохраненных
+  function handleDeleteSavedMovies(movie) {
+    setIsPreloader(true);
+    mainApi
+      .deleteCard(movie)
+      .then(() => {
+        const savedList = savedMovies.filter(
+          (itemMovie) => itemMovie.id !== movie
+        );
+        setSavedMovies(savedList);
+        localStorage.setItem("userMovies", JSON.stringify(savedList));
+      })
+      .catch((err) => {
+        console.log(`Ошибка при удалении из сохраненных: ${err}`); // выведем ошибку в консоль
+      })
+      .finally(() => {
+        setIsPreloader(false);
+      });
+  }
+
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
@@ -219,8 +252,11 @@ function App() {
                 isOpen={openPopup}
                 onClose={closePopup}
                 textMore={"Ещё"}
-                cards={cards}
                 isPreloader={isPreloader}
+                onLikeMovies={handleLikeforSaveMovies}
+                onDeleteSavedMovies={handleDeleteSavedMovies}
+                filterAllMovies={filterAllMovies}
+                savedMovies={savedMovies}
               ></ProtectedRouteElement>
             }
           />
@@ -234,6 +270,11 @@ function App() {
                 isOpen={openPopup}
                 onClose={closePopup}
                 isPreloader={isPreloader}
+                onDeleteSavedMovies={handleDeleteSavedMovies}
+                newAddMovies={savedMovies}
+                filterAllMovies={filterAllMovies}
+                savedMovies={savedMovies}
+                setSavedMovies={setSavedMovies}
               ></ProtectedRouteElement>
             }
           />
@@ -288,8 +329,6 @@ function App() {
                 titlelog={"Регистрация"}
                 errorText={isErrorText}
                 isPreloader={isPreloader}
-                //// setisRegister={setisRegister}
-                //// setisInfoTooltipOpen={setisInfoTooltipOpen}
               />
             }
           />

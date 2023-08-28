@@ -30,7 +30,7 @@ export default class MainApi {
     }).then((res) => this._resResponse(res));
   }
 
-  getAllCards() {
+  getSavedCards() {
     return fetch(`${this._url}/movies`, {
       method: "GET",
       credentials: "include",
@@ -38,12 +38,25 @@ export default class MainApi {
     }).then((res) => this._resResponse(res));
   }
 
-  addSavedCard({ name, link }) {
+  addSavedCard(data) {
     return fetch(`${this._url}/movies`, {
       method: "POST",
       credentials: "include",
       headers: this._headers,
-      body: JSON.stringify({ name, link }),
+      body: JSON.stringify({ 
+        country: data.country,
+        // created_at: data.created_at,
+        description: data.description,
+        director: data.director,
+        duration: data.duration,
+        image: `https://api.nomoreparties.co${data.image.url}`,
+        nameEN: data.nameEN,
+        nameRU: data.nameRU,
+        trailerLink: data.trailerLink,
+        thumbnail: `https://api.nomoreparties.co${data.image.url}`,
+        movieId: data.id,
+        year: data.year,
+      }),
     }).then((res) => this._resResponse(res));
   }
 
@@ -54,30 +67,6 @@ export default class MainApi {
       headers: this._headers,
     }).then((res) => this._resResponse(res));
   }
-  // editAvatarInfo(data) {
-  //   return fetch(`${this._url}/users/me/avatar`, {
-  //     method: "PATCH",
-  //     credentials: "include",
-  //     headers: this._headers,
-  //     body: JSON.stringify({ avatar: data.avatar }),
-  //   }).then((res) => this._resResponse(res));
-  // }
-
-  // changeLikeCardStatus(idCard, isLiked) {
-  //   if (isLiked) {
-  //     return fetch(`${this._url}/cards/${idCard}/likes`, {
-  //       method: "PUT",
-  //       credentials: "include",
-  //       headers: this._headers,
-  //     }).then((res) => this._resResponse(res));
-  //   } else {
-  //     return fetch(`${this._url}/cards/${idCard}/likes`, {
-  //       method: "DELETE",
-  //       credentials: "include",
-  //       headers: this._headers,
-  //     }).then((res) => this._resResponse(res));
-  //   }
-  // }
 }
 
 export const mainApi = new MainApi({

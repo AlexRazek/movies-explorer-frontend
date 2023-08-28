@@ -5,14 +5,20 @@
     box-sizing: border-box;
     /* border-radius: 10px; */
     grid-template-columns: 1fr;
-    max-width: 270px;
+    max-width: 270px; 
     width: 100%;
     grid-template-rows: repeat(3, min-content);
     background: #202020;
 }
 
+.element__image-trailer {
+    padding: 0;
+    margin: 0;
+    /* min-height: 200px; */
+}
+
 .element__image {
-    width: 100%;
+    width: 270px;
     height: 151px;
     grid-column: 1;
     grid-row: 1;
@@ -20,6 +26,7 @@
     object-fit: cover;
     cursor: pointer;
 }
+
 
 .element__title-container {
     width: 270px;
@@ -37,6 +44,7 @@
     margin-left: 0;
     margin-top: 4px;
     min-height: 32px;
+    width: 80%;
     grid-column: 1;
     grid-row: 2;
     color: #FFF;
