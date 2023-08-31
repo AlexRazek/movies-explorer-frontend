@@ -1,5 +1,5 @@
 // import { Link } from "react-router-dom";
-import React, { useEffect, useCallback } from "react";
+import React, {useEffect, useCallback} from "react";
 // import React from "react";
 
 import "../../index.css";
@@ -9,7 +9,7 @@ import searching_icon from "../../images/searching-icon.svg";
 import FilterCheckbox from "../SearchForm/FilterCheckbox/FilterCheckbox";
 
 const SearchForm = (props) => {
-  const { handleChange, values } = useFormWithValidation();
+  const { handleChange, values, resetForm} = useFormWithValidation();
 
   const searchMovies = useCallback(() => {
     return props.searchMovie;
@@ -19,13 +19,16 @@ const SearchForm = (props) => {
     if (values.searchForm === "") {
       localStorage.removeItem("searchMoviesFromSaved");
       localStorage.removeItem("searchMoviesFromServer");
+      searchMovies(" ");
+      resetForm();
     }
-  }, [searchMovies, values.searchForm]);
+  }, [searchMovies, resetForm, values.searchForm]);
+
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    props.handleSearchMovies(values.searchForm);
-  };
+      e.preventDefault();
+      props.handleSearchMovies(values.searchForm);
+  }
 
   return (
     <section className="searchform searchform_border-bottom">

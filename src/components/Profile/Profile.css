@@ -129,6 +129,36 @@
     visibility: visible;
 }
 
+
+.profile__text-success {
+    color: white;
+    height: 14px;
+    text-align: center;
+    font-family: Inter;
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-bottom: 20px;
+    opacity: 0;
+    visibility: hidden;
+}
+
+
+.profile__text-success_active {
+    color: white;
+    height: 14px;
+    text-align: center;
+    font-family: Inter;
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-bottom: 20px;
+    opacity: 1;
+    visibility: visible;
+}
+
 .profile__submit-btn {
     margin: 0;
     color: #FFF;

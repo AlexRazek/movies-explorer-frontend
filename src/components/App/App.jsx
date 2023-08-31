@@ -15,7 +15,7 @@ import NotFoundPage from "../NotFoundPage/NotFoundPage";
 import Popup from "../Popup/Popup";
 import * as auth from "../../utils/auth";
 import { mainApi } from "../../utils/MainApi";
-import { filterAllMovies } from "../../utils/constants"
+import { filterAllMovies } from "../../utils/constants";
 
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import ProtectedRouteElement from "../ProtectedRoute/ProtectedRoute";
@@ -28,6 +28,7 @@ function App() {
   const [currentUser, setCurrentUser] = useState({});
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [isErrorText, setIsErrorText] = useState("");
+  const [isSuccessText, setIsSuccessText] = useState("");
   const [savedMovies, setSavedMovies] = useState([]);
 
   const navigate = useNavigate();
@@ -40,8 +41,8 @@ function App() {
         if (data) {
           setLoggedIn(true);
           setCurrentUser(data);
-          navigate("/saved-movies");
-          navigate("/");
+          // navigate("/saved-movies");
+          // navigate("/");
         }
       })
       .catch((err) => {
@@ -64,7 +65,7 @@ function App() {
         .getUserInfo()
         .then((userData) => {
           setCurrentUser(userData);
-          localStorage.setItem('userData', JSON.stringify(userData))
+          localStorage.setItem("userData", JSON.stringify(userData));
         })
         .catch((err) => {
           console.log(`Ошибка при загрузке информации о пользователе: ${err}`); // выведем ошибку в консоль
@@ -102,7 +103,11 @@ function App() {
       .then((user) => {
         setCurrentUser(user);
         setIsPreloader(false);
-      })
+        setIsSuccessText("Данные успешно обновлены");
+        setTimeout(() => {
+          setIsSuccessText(false);
+        }, 2000);
+      }) //выставляем время показа сообщения
       .catch((err) => {
         setIsErrorText("При обновлении профиля произошла ошибка.");
         console.log(`Ошибка при обновлении данных пользователя: ${err}`); // выведем ошибку в консоль
@@ -119,11 +124,12 @@ function App() {
       auth
         .register(name, email, password)
         .then(() => {
-          navigate("/signin");
           setIsErrorText("");
+          handleLogin(email, password);
+          navigate("/movies");
         })
         .catch((err) => {
-          setIsErrorText("Пользователь с таким email уже существует.");
+          setIsErrorText("При регистрации пользователя произошла ошибка");
           console.log(`Ошибка при регистрации: ${err}`); // выведем ошибку в консоль
         })
         .finally(() => {
@@ -176,24 +182,27 @@ function App() {
       });
   }
 
-  // сохранени фильма из общего списка в сохраненные
-  function handleLikeforSaveMovies(movie) {
-    const savedMovie = savedMovies.find(function(item) {
-      return movie.id === item.movieId
+  // сохранение фильма из общего списка в сохраненные
+  function handleLikeforSaveMovies(addedMovie) {
+    const savedMovieItem = savedMovies.find(function (item) {
+      return addedMovie.id === item.movieId;
     });
-    if (savedMovie) {
+    if (savedMovieItem) {
       console.log("Попытка добавить сохраненный ранее фильм");
-      return ;
+      return;
     }
     mainApi
-      .addSavedCard(movie)
-      .then((newSavedItem) => {
-        setSavedMovies([newSavedItem, ...savedMovies]);
-        localStorage.setItem('userMovies',JSON.stringify(savedMovies))
+      .addSavedCard(addedMovie)
+      .then((addedItem) => {
+        return [addedItem, ...savedMovies];
+      })
+      .then((item) => {
+        setSavedMovies(item);
+        localStorage.setItem("userMovies", JSON.stringify(item));
       })
       .catch((err) => {
         console.log(`Ошибка при сохранении фильма в сохраненные: ${err}`); // выведем ошибку в консоль
-      })
+      });
   }
 
   // удаление фильма из сохраненных
@@ -201,12 +210,12 @@ function App() {
     setIsPreloader(true);
     mainApi
       .deleteCard(movie)
-      .then(() => {
+      .then((movieForDelete) => {
         const savedList = savedMovies.filter(
-          (itemMovie) => itemMovie.id !== movie
+          (itemMovie) => itemMovie._id !== movieForDelete.movie._id
         );
-        setSavedMovies(savedList);
         localStorage.setItem("userMovies", JSON.stringify(savedList));
+        setSavedMovies(savedList);
       })
       .catch((err) => {
         console.log(`Ошибка при удалении из сохраненных: ${err}`); // выведем ошибку в консоль
@@ -215,7 +224,6 @@ function App() {
         setIsPreloader(false);
       });
   }
-
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
@@ -294,6 +302,7 @@ function App() {
                 buttonTitle={"Редактировать"}
                 buttonText={"Выйти из аккаунта"}
                 errorText={isErrorText}
+                successText={isSuccessText}
               ></ProtectedRouteElement>
             }
           />

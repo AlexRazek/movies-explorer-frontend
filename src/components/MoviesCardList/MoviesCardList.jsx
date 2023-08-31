@@ -85,7 +85,16 @@ function MoviesCardList(props) {
           />
         ))}
       </ul>
-      )}
+      )} 
+      <div
+          id="elements__input-error"
+          className={`elements__input-error ${
+            props.cards.length === 0
+              ? "elements__input-error_active"
+              : "elements__input-error"
+          }`}>
+          Ничего не найдено
+      </div>
       <div className="elements__more-container">
         <button
           type="button"

@@ -1,5 +1,5 @@
 import "../../index.css";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import "./SavedMovies.css";
 import MoviesCardList from "../MoviesCardList/MoviesCardList";
 import SearchForm from "../SearchForm/SearchForm";
@@ -13,7 +13,9 @@ import Preloader from "../Preloader/Preloader";
 function SavedMovies(props) {
   //   const currentUser = React.useContext(CurrentUserContext);
 
-  const [viewSavedMovies, setViewSavedMovies] = useState([]);
+  const [viewSavedMovies, setViewSavedMovies] = useState(localStorage.getItem("savedSearchedMovies") 
+    ? JSON.parse(localStorage.getItem("savedSearchedMovies")) : []);
+
   const [viewMovies, setViewMovies] = useState([]);
   const searchSavedMovie = JSON.parse(localStorage.getItem("searchMoviesFromSaved"));
 
@@ -22,9 +24,9 @@ function SavedMovies(props) {
     const viewSavedMovies = props.filterAllMovies(isSaved, searchStrings);
 
     if (viewSavedMovies.length !== 0) {
-      localStorage.setItem("savedMovies", JSON.stringify(viewSavedMovies));
+      localStorage.setItem("savedSearchedMovies", JSON.stringify(viewSavedMovies));
       localStorage.setItem("searchMoviesFromSaved", JSON.stringify(searchStrings));
-      setViewSavedMovies(JSON.parse(localStorage.getItem("savedMovies")));
+      setViewSavedMovies(JSON.parse(localStorage.getItem("savedSearchedMovies")));
     } else {
       props.setSavedMovies([]);
     }
@@ -43,21 +45,31 @@ function SavedMovies(props) {
     localStorage.setItem("savedCheckBoxMovies", JSON.stringify(!isShort));
   };
 
-  useEffect(() => {
-    if (isShort && searchSavedMovie) {
+  const searchInSavedShortMovies = useCallback(()=> {
+    if (searchSavedMovie) {
       setViewMovies(filterCheckMovies(viewSavedMovies));
     } else {
       setViewMovies(filterCheckMovies(props.savedMovies));
     }
-  }, [isShort, searchSavedMovie, props.savedMovies, viewSavedMovies]);
+  }, [searchSavedMovie, props.savedMovies, viewSavedMovies]);
 
-  useEffect(() => {
+
+  const searchInSavedMovies = useCallback(()=> {
     if (searchSavedMovie) {
       setViewMovies(viewSavedMovies);
     } else {
       setViewMovies(props.savedMovies);
     }
   }, [searchSavedMovie, props.savedMovies, viewSavedMovies]);
+
+
+  useEffect(() => {
+    if (isShort) {
+      searchInSavedShortMovies()
+  } else {
+    searchInSavedMovies()
+  }
+  }, [isShort, searchInSavedShortMovies, searchInSavedMovies]);
 
   return (
     <>

@@ -1,5 +1,6 @@
 export const emailPattern =
-  "[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?";
+  "^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}";
+
 export const namePattern = "^([A-Za-z-']{3,30})|([А-Яа-я-']{3,30})$";
 
 export const moviesURL = "https://api.nomoreparties.co";
@@ -12,10 +13,12 @@ export const LARGE_INITIAL_CARD_COUNT = 16;
 export const MIDLE_INITIAL_CARD_COUNT = 8;
 export const SMALL_INITIAL_CARD_COUNT = 5;
 
-
 export const filterAllMovies = (items, searchStrings) => {
   return items.filter((item) => {
-    return Object.values(item).join(" ").toLowerCase().includes(searchStrings.toLowerCase());
+    return Object.values(item)
+      .join(" ")
+      .toLowerCase()
+      .includes(searchStrings.toLowerCase());
   });
 };
 
@@ -71,7 +74,6 @@ export const cards = [
     duration: "1ч 42м",
     likes: true,
   },
-
 ];
 
 export const cardsShort = [

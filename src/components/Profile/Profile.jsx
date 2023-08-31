@@ -146,6 +146,17 @@ function Profile(props) {
               >
                 {props.errorText}
               </span>
+              <span
+                id="profile__text-success"
+                className={`${
+                  props.successText
+                    ? "profile__text-success_active"
+                    : "profile__text-success"
+                }`}
+              >
+                {props.successText}
+              </span>
+
               <button
                 type="submit"
                 onClick={handleSubmit}

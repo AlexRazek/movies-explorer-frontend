@@ -40,6 +40,32 @@
   opacity: 0;
 }
 
+.elements__input-error {
+  color: #FF004C;
+  text-align: center;
+  font-family: Inter;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.elements__input-error_active {
+  color: #FF004C;
+  height: 14px;
+  text-align: center;
+  font-family: Inter;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-bottom: 20px;
+  opacity: 1;
+  visibility: visible;
+}
+
 @media (max-width: 1279px) {
   .elements {
     grid-template-columns: repeat(3, 1fr);

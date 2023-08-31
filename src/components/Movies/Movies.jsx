@@ -2,23 +2,22 @@ import "../../index.css";
 import React, { useState, useEffect } from "react";
 import SearchForm from "../SearchForm/SearchForm";
 import "./Movies.css";
-// import Preloader from "../Preloader/Preloader";
 import MoviesCardList from "../MoviesCardList/MoviesCardList";
-// import MoviesCard from "../MoviesCard/MoviesCard";
 import Header from "../Header/Header";
-// import { cards } from "../../utils/constants";
 import Footer from "../Footer/Footer";
 
 import { moviesApi } from "../../utils/MoviesApi";
-// import Preloader from "../Preloader/Preloader";
 
 // import { CurrentUserContext } from "../contexts/CurrentUserContext";
 
 function Movies(props) {
   // const currentUser = React.useContext(CurrentUserContext);
+  const [serverMovies, setServerMovies] = useState(localStorage.getItem("serverMovies") 
+    ? JSON.parse(localStorage.getItem("serverMovies")) : []);
 
-  const [serverMovies, setServerMovies] = useState([]);
   const [viewServerMovies, setViewServerMovies] = useState([]);
+
+
   const searchMovie = JSON.parse(localStorage.getItem("searchMoviesFromServer"));
 
   const handleSearchMovies = (searchStrings) => {
