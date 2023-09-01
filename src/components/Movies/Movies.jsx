@@ -17,8 +17,7 @@ function Movies(props) {
 
   const [viewServerMovies, setViewServerMovies] = useState([]);
 
-
-  const searchMovie = JSON.parse(localStorage.getItem("searchMoviesFromServer"));
+  const searchMovie = JSON.parse(localStorage.getItem("searchTextMoviesFromServer"));
 
   const handleSearchMovies = (searchStrings) => {
     const requestToSearch = (request) => {
@@ -26,7 +25,7 @@ function Movies(props) {
 
       if (viewServerMovies.length !== 0) {
         localStorage.setItem("serverMovies", JSON.stringify(viewServerMovies));
-        localStorage.setItem("searchMoviesFromServer", JSON.stringify(searchStrings));
+        localStorage.setItem("searchTextMoviesFromServer", JSON.stringify(searchStrings));
         setServerMovies(JSON.parse(localStorage.getItem("serverMovies")));
       } else {
         setServerMovies([]);

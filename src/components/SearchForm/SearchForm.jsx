@@ -1,6 +1,5 @@
 // import { Link } from "react-router-dom";
-import React, {useEffect, useCallback} from "react";
-// import React from "react";
+import React, { useEffect, useState } from "react";
 
 import "../../index.css";
 import "./SearchForm.css";
@@ -9,26 +8,21 @@ import searching_icon from "../../images/searching-icon.svg";
 import FilterCheckbox from "../SearchForm/FilterCheckbox/FilterCheckbox";
 
 const SearchForm = (props) => {
-  const { handleChange, values, resetForm} = useFormWithValidation();
-
-  const searchMovies = useCallback(() => {
-    return props.searchMovie;
-  }, [props.searchMovie]);
+  const { handleChange, values, resetForm } = useFormWithValidation();
+  const [isInput, setIsInput] = useState(props.searchMovie);
 
   useEffect(() => {
     if (values.searchForm === "") {
-      localStorage.removeItem("searchMoviesFromSaved");
-      localStorage.removeItem("searchMoviesFromServer");
-      searchMovies(" ");
+      localStorage.removeItem("searchTextMoviesFromServer");
+      setIsInput("");
       resetForm();
     }
-  }, [searchMovies, resetForm, values.searchForm]);
-
+  }, [resetForm, values.searchForm]);
 
   const handleSubmit = (e) => {
-      e.preventDefault();
-      props.handleSearchMovies(values.searchForm);
-  }
+    e.preventDefault();
+    props.handleSearchMovies(values.searchForm);
+  };
 
   return (
     <section className="searchform searchform_border-bottom">
@@ -42,8 +36,8 @@ const SearchForm = (props) => {
             placeholder="Фильм"
             name="searchForm"
             type="text"
-            value={values.searchForm || ""} 
-            onChange={handleChange} 
+            value={values.searchForm || isInput || ""}
+            onChange={handleChange}
             minLength="1"
             maxLength="220"
           />
@@ -52,8 +46,8 @@ const SearchForm = (props) => {
           </button>
         </form>
         <FilterCheckbox
-          handleCheckToggler={props.handleCheckToggler} 
-          isShort={props.isShort} 
+          handleCheckToggler={props.handleCheckToggler}
+          isShort={props.isShort}
           text={"Короткометражки"}
         />
       </div>

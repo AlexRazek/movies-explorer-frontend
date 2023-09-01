@@ -1,8 +1,6 @@
 import "../../index.css";
 import React, { useEffect, useState } from "react";
 import { Route, Routes, useNavigate } from "react-router-dom";
-// import { Route, Routes, Navigate, useNavigate} from "react-router-dom";
-// import ProtectedRouteElement from "./ProtectedRoute.js";
 import "./App.css";
 // import Header from "../Header/Header";
 import Main from "../Main/Main";
@@ -211,9 +209,11 @@ function App() {
     mainApi
       .deleteCard(movie)
       .then((movieForDelete) => {
-        const savedList = savedMovies.filter(
-          (itemMovie) => itemMovie._id !== movieForDelete.movie._id
-        );
+        return savedMovies.filter((itemMovie) => {
+          return itemMovie._id !== movieForDelete.movie._id
+        })
+      })
+      .then((savedList) => { 
         localStorage.setItem("userMovies", JSON.stringify(savedList));
         setSavedMovies(savedList);
       })

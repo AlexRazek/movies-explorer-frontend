@@ -5,28 +5,25 @@ import MoviesCardList from "../MoviesCardList/MoviesCardList";
 import SearchForm from "../SearchForm/SearchForm";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
-// import { cardsShort } from "../../utils/constants";
 import Preloader from "../Preloader/Preloader";
 
-// import { CurrentUserContext } from "../contexts/CurrentUserContext";
-
 function SavedMovies(props) {
-  //   const currentUser = React.useContext(CurrentUserContext);
-
-  const [viewSavedMovies, setViewSavedMovies] = useState(localStorage.getItem("savedSearchedMovies") 
-    ? JSON.parse(localStorage.getItem("savedSearchedMovies")) : []);
+  // const [viewMovies, setViewMovies] = useState([]);
+  const [viewSavedMovies, setViewSavedMovies] = useState(localStorage.getItem("userMovies")
+      ? JSON.parse(localStorage.getItem("userMovies"))
+      : []
+  );
 
   const [viewMovies, setViewMovies] = useState([]);
-  const searchSavedMovie = JSON.parse(localStorage.getItem("searchMoviesFromSaved"));
 
   const handleSearchSavedMovies = (searchStrings) => {
     const isSaved = JSON.parse(localStorage.getItem("userMovies"));
     const viewSavedMovies = props.filterAllMovies(isSaved, searchStrings);
 
     if (viewSavedMovies.length !== 0) {
-      localStorage.setItem("savedSearchedMovies", JSON.stringify(viewSavedMovies));
-      localStorage.setItem("searchMoviesFromSaved", JSON.stringify(searchStrings));
-      setViewSavedMovies(JSON.parse(localStorage.getItem("savedSearchedMovies")));
+      localStorage.setItem("userMovies", JSON.stringify(viewSavedMovies));
+      localStorage.setItem("searchTextMoviesFromSaved", JSON.stringify(searchStrings));
+      setViewSavedMovies(JSON.parse(localStorage.getItem("userMovies")));
     } else {
       props.setSavedMovies([]);
     }
@@ -35,6 +32,8 @@ function SavedMovies(props) {
   const [isShort, setIsShort] = useState(
     JSON.parse(localStorage.getItem("savedCheckBoxMovies"))
   );
+
+  const searchSavedMovie = JSON.parse(localStorage.getItem("searchTextMoviesFromSaved"));
 
   const filterCheckMovies = (moviesDuration) => {
     return moviesDuration.filter(({ duration }) => duration <= 40);
@@ -45,7 +44,7 @@ function SavedMovies(props) {
     localStorage.setItem("savedCheckBoxMovies", JSON.stringify(!isShort));
   };
 
-  const searchInSavedShortMovies = useCallback(()=> {
+  const searchInSavedShortMovies = useCallback(() => {
     if (searchSavedMovie) {
       setViewMovies(filterCheckMovies(viewSavedMovies));
     } else {
@@ -53,8 +52,7 @@ function SavedMovies(props) {
     }
   }, [searchSavedMovie, props.savedMovies, viewSavedMovies]);
 
-
-  const searchInSavedMovies = useCallback(()=> {
+  const searchInSavedMovies = useCallback(() => {
     if (searchSavedMovie) {
       setViewMovies(viewSavedMovies);
     } else {
@@ -62,13 +60,12 @@ function SavedMovies(props) {
     }
   }, [searchSavedMovie, props.savedMovies, viewSavedMovies]);
 
-
   useEffect(() => {
     if (isShort) {
-      searchInSavedShortMovies()
-  } else {
-    searchInSavedMovies()
-  }
+      searchInSavedShortMovies();
+    } else {
+      searchInSavedMovies();
+    }
   }, [isShort, searchInSavedShortMovies, searchInSavedMovies]);
 
   return (
@@ -90,7 +87,7 @@ function SavedMovies(props) {
             handleSearchMovies={handleSearchSavedMovies}
             handleCheckToggler={handleCheckToggler}
             isShort={isShort}
-            searchMovie={searchSavedMovie}
+            // searchMovie={searchSavedMovie}
           />
           <MoviesCardList
             cards={viewMovies}
