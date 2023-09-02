@@ -1,5 +1,5 @@
 import { useCallback, useState } from "react";
-const isEmail = require('validator/lib/isEmail');
+import {isEmail} from "validator";
 
 // //хук управления формой
 // export function useFormValid() {
