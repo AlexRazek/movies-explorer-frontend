@@ -1,5 +1,5 @@
+import { isEmail } from "validator";
 import { useCallback, useState } from "react";
-import {isEmail} from "validator";
 
 // //хук управления формой
 // export function useFormValid() {
