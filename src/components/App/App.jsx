@@ -215,6 +215,7 @@ function App() {
       })
       .then((savedList) => { 
         localStorage.setItem("userMovies", JSON.stringify(savedList));
+        localStorage.setItem("userSavedMovies", JSON.stringify(savedList));
         setSavedMovies(savedList);
       })
       .catch((err) => {

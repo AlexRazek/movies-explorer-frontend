@@ -14,6 +14,7 @@ const SearchForm = (props) => {
   useEffect(() => {
     if (values.searchForm === "") {
       localStorage.removeItem("searchTextMoviesFromServer");
+      localStorage.removeItem("searchTextMoviesFromSaved");
       setIsInput("");
       resetForm();
     }

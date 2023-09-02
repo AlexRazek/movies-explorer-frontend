@@ -9,21 +9,23 @@ import Preloader from "../Preloader/Preloader";
 
 function SavedMovies(props) {
   // const [viewMovies, setViewMovies] = useState([]);
-  const [viewSavedMovies, setViewSavedMovies] = useState(localStorage.getItem("userMovies")
-      ? JSON.parse(localStorage.getItem("userMovies"))
+  const [viewSavedMovies, setViewSavedMovies] = useState(localStorage.getItem("userSavedMovies")
+      ? JSON.parse(localStorage.getItem("userSavedMovies"))
       : []
   );
 
   const [viewMovies, setViewMovies] = useState([]);
+
+  const searchSavedMovie = JSON.parse(localStorage.getItem("searchTextMoviesFromSaved"));
 
   const handleSearchSavedMovies = (searchStrings) => {
     const isSaved = JSON.parse(localStorage.getItem("userMovies"));
     const viewSavedMovies = props.filterAllMovies(isSaved, searchStrings);
 
     if (viewSavedMovies.length !== 0) {
-      localStorage.setItem("userMovies", JSON.stringify(viewSavedMovies));
+      localStorage.setItem("userSavedMovies", JSON.stringify(viewSavedMovies));
       localStorage.setItem("searchTextMoviesFromSaved", JSON.stringify(searchStrings));
-      setViewSavedMovies(JSON.parse(localStorage.getItem("userMovies")));
+      setViewSavedMovies(JSON.parse(localStorage.getItem("userSavedMovies")));
     } else {
       props.setSavedMovies([]);
     }
@@ -32,8 +34,6 @@ function SavedMovies(props) {
   const [isShort, setIsShort] = useState(
     JSON.parse(localStorage.getItem("savedCheckBoxMovies"))
   );
-
-  const searchSavedMovie = JSON.parse(localStorage.getItem("searchTextMoviesFromSaved"));
 
   const filterCheckMovies = (moviesDuration) => {
     return moviesDuration.filter(({ duration }) => duration <= 40);
