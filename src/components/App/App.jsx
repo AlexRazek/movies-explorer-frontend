@@ -224,7 +224,11 @@ function App() {
       .finally(() => {
         setIsPreloader(false);
       });
-  }
+  };
+
+  function handleGoBack () {
+    navigate("/");
+  }; 
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
@@ -237,6 +241,7 @@ function App() {
                 notFound={"404"}
                 text={"Страница не найдена"}
                 titleLink={"Назад"}
+                goBack={handleGoBack}
               />
             }
           />

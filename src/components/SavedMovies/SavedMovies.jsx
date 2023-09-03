@@ -6,13 +6,26 @@ import SearchForm from "../SearchForm/SearchForm";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import Preloader from "../Preloader/Preloader";
+import { useFormWithValidation } from "../../hook/useFormValid";
 
 function SavedMovies(props) {
-  // const [viewMovies, setViewMovies] = useState([]);
+  const [isShort, setIsShort] = useState(JSON.parse(localStorage.getItem("savedCheckBoxMovies")));
   const [viewSavedMovies, setViewSavedMovies] = useState(localStorage.getItem("userSavedMovies")
       ? JSON.parse(localStorage.getItem("userSavedMovies"))
       : []
   );
+  const { resetForm } = useFormWithValidation();
+  
+  useEffect(() => {
+    let watchSavedMoviesS = JSON.parse(localStorage.getItem("userSavedMovies"));
+    if (watchSavedMoviesS) {
+      localStorage.removeItem("searchTextMoviesFromSaved");
+      localStorage.getItem("userMovies");
+      resetForm();
+      setIsShort(false);
+    }
+    }, [props.savedMovies, resetForm, setIsShort]);
+
 
   const [viewMovies, setViewMovies] = useState([]);
 
@@ -27,13 +40,13 @@ function SavedMovies(props) {
       localStorage.setItem("searchTextMoviesFromSaved", JSON.stringify(searchStrings));
       setViewSavedMovies(JSON.parse(localStorage.getItem("userSavedMovies")));
     } else {
-      props.setSavedMovies([]);
+      // props.setSavedMovies([]);
+      localStorage.setItem("userSavedMovies", JSON.stringify(viewSavedMovies));
+      localStorage.setItem("searchTextMoviesFromSaved", JSON.stringify(searchStrings));
+      setViewSavedMovies(JSON.parse(localStorage.getItem("userSavedMovies")));
     }
   };
 
-  const [isShort, setIsShort] = useState(
-    JSON.parse(localStorage.getItem("savedCheckBoxMovies"))
-  );
 
   const filterCheckMovies = (moviesDuration) => {
     return moviesDuration.filter(({ duration }) => duration <= 40);

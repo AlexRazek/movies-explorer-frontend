@@ -73,10 +73,10 @@
     cursor: pointer;
 }
 
-.element__like:hover {
+/* .element__like:hover {
     opacity: 0.5;
     transition: opacity 1s linear;
-}
+} */
 
 .element__like_active {
     margin-left: 20px;
