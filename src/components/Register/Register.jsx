@@ -37,7 +37,8 @@ const Register = (props) => {
               pattern={namePattern}
               maxLength="30"
               autoFocus
-              required
+              required   
+              // autoComplete="off"        
             />
             <span
               id="register__input-error"
@@ -60,6 +61,7 @@ const Register = (props) => {
               value={values.email || ""}
               onChange={handleChange}
               pattern={emailPattern}
+              // autoComplete="off"
               minLength="5"
               maxLength="30"
               autoFocus

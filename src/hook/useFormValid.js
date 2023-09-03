@@ -26,9 +26,6 @@ export function useFormWithValidation() {
     const name = target.name;
     const value = target.value;
 
-    setValues({ ...values, [name]: value });
-    setErrors({ ...errors, [name]: target.validationMessage });
-
     if (name === "email") {
       if (isEmail(value)) {
         target.setCustomValidity("");
@@ -36,7 +33,9 @@ export function useFormWithValidation() {
         target.setCustomValidity("Введен не корреектный email адресс");
       }
     }
-
+    
+    setValues({ ...values, [name]: value });
+    setErrors({ ...errors, [name]: target.validationMessage });
     setIsValid(target.closest("form").checkValidity());
   };
 

@@ -1,7 +1,7 @@
-export const emailPattern =
-  "^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@((d{1,3}.d{1,3}.d{1,3}.d{1,3}(:d{1,3})?)|(((([a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9])|([a-zA-Z0-9]{1,2}))[.]{1})+([a-zA-Z]{2,4})))$";
+export const emailPattern = "[a-z0-9]+@[a-z]+.[a-z]{2,3}";
 
-export const namePattern = "^([A-Za-z-']{3,30})|([А-Яа-я-']{3,30})$";
+export const namePattern = "^[A-Za-zА-Яа-яЁё\\-\\s]+$"
+// "^([A-Za-z-']{3,30})|([А-Яа-я-']{3,30})";
 
 export const moviesURL = "https://api.nomoreparties.co";
 

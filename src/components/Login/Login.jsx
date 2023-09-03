@@ -38,6 +38,7 @@ const Login = (props) => {
               pattern={emailPattern}
               minLength="5"
               maxLength="30"
+              // autoComplete="off"
               autoFocus
               required
             />

@@ -153,7 +153,10 @@ function App() {
       })
       .catch((err) => {
         setIsErrorText("Вы ввели неправильный логин или пароль");
-        console.log(`Ошибка при регистрации: ${err}`);
+        // console.log(`Ошибка при регистрации: ${err}`);
+      })
+      .finally(() => {
+        setIsPreloader(false);
       });
   }
 

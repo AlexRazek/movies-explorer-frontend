@@ -17,8 +17,9 @@ function SavedMovies(props) {
   const { resetForm } = useFormWithValidation();
   
   useEffect(() => {
-    let watchSavedMoviesS = JSON.parse(localStorage.getItem("userSavedMovies"));
-    if (watchSavedMoviesS) {
+    let watchSavedMovies = JSON.parse(localStorage.getItem("userSavedMovies"));
+    let watchSavedCheck = JSON.parse(localStorage.getItem("savedCheckBoxMovies"));
+    if (watchSavedMovies || watchSavedCheck) {
       localStorage.removeItem("searchTextMoviesFromSaved");
       localStorage.getItem("userMovies");
       resetForm();
