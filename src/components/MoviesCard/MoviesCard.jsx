@@ -10,7 +10,7 @@ function MoviesCard(props) {
   const location = useLocation();
   const userMoviesUrl = `${moviesURL}${props.image.url}`;
 
-  const savedUserMovies = (JSON.parse(localStorage.getItem("userMovies")) || []).find((item) => item.nameRU === props.card.nameRU);
+  const savedUserMovies = JSON.parse(localStorage.getItem("userMovies")).find((item) => item.nameRU === props.card.nameRU);
 
   const isLiked = Boolean(savedUserMovies); 
 
