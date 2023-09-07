@@ -1,6 +1,8 @@
 // import { Link } from "react-router-dom";
 import "./AboutMe.css";
 import "../../index.css";
+import photo from "../../images/foto.jpeg";
+
 
 const AboutMe = (props) => {
   return (
@@ -8,16 +10,20 @@ const AboutMe = (props) => {
       <h2 className="aboutMe__about">Студент</h2>
       <div className="aboutMe__container">
         <div className="aboutMe__description">
-          <h3 className="aboutMe__description-name">Виталий</h3>
+          <h3 className="aboutMe__description-name">Александр</h3>
           <h4 className="aboutMe__description-title">
-            Фронтенд-разработчик, 30 лет
+            Фронтенд-разработчик
           </h4>
           <p className="aboutMe__description-subtitle">
-            Я родился и живу в Саратове, закончил факультет экономики СГУ. У
-            меня есть жена и дочь. Я люблю слушать музыку, а ещё увлекаюсь
-            бегом. Недавно начал кодить. С 2015 года работал в компании «СКБ
-            Контур». После того, как прошёл курс по веб-разработке, начал
-            заниматься фриланс-заказами и ушёл с постоянной работы.
+            Я закончил технологический факультет СибГИУ.
+            Несколько лет назад решил реализовть свою давнюю цель, стать разработчиком.
+            И для этого окончил ряд курсов по программированию, в том числе Веб-разработка
+            от Яндекс-практикум. 
+            До этого работал менеджером по крупным проектам. 
+            После того, как прошёл курс по веб-разработке, начал заниматься 
+            фриланс-заказами и ушёл с постоянной работы.
+            Я люблю слушать музыку,  изучать психологию, а ещё увлекаюсь
+            футболом и баскетболом.
           </p>
           <a
             href="https://github.com/AlexRazek"
@@ -28,7 +34,7 @@ const AboutMe = (props) => {
             Github
           </a>
         </div>
-        <img src="#" alt="фотография" className="aboutMe__photo"></img>
+        <img src={photo} alt="фотография" className="aboutMe__photo"></img>
       </div>
     </section>
   );

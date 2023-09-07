@@ -95,7 +95,7 @@
     width: 270px;
     height: 327px;
     border-radius: 10px;
-    background-image: url(../../images/pic__COLOR_pic.png);
+    /* background-image: url(../../images/pic__COLOR_pic.png); */
     background-repeat: no-repeat;
     background-position: center;
     background-color: lightgray 50%;
