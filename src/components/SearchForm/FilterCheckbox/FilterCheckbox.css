@@ -14,35 +14,37 @@
     display: none;
 }
 
-.filtercheckbox__label { 
-    content:""; 
-    display:inline-block; 
+.filtercheckbox__label {
+    content: "";
+    display: inline-block;
     position: relative;
-    width:36px; 
-    height:20px; 
-    background: url(../../../images/smalltumboff.svg);
+    width: 36px;
+    height: 20px;
+    background: url(../../../images/smalltumb.svg);
+    /* background: url(../../../images/smalltumboff.svg); */
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
 }
 
-.filtercheckbox__label:before{
-    content:""; 
-    display:inline-block; 
-    width:36px; 
-    height:20px; 
+.filtercheckbox__label:before {
+    content: "";
+    display: inline-block;
+    width: 36px;
+    height: 20px;
     position: absolute;
-    background: url(../../../images/smalltumb.svg);
+    background: url(../../../images/smalltumboff.svg);
+    /* background: url(../../../images/smalltumb.svg); */
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     cursor: pointer;
-}​
+}
 
-.filtercheckbox__input:checked+.filtercheckbox__label {
+​ .filtercheckbox__input:checked+.filtercheckbox__label {
     width: 36px;
     height: 20px;
-    background: url(../../../images/smalltumb.svg);
+    background: url(../../../images/smalltumboff.svg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -52,7 +54,8 @@
 .filtercheckbox__input:checked+.filtercheckbox__label:before {
     width: 36px;
     height: 20px;
-    background: url(../../../images/smalltumboff.svg);
+    background: url(../../../images/smalltumb.svg);
+    /* background: url(../../../images/smalltumboff.svg); */
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -66,7 +69,8 @@
     font-size: 13px;
     font-style: normal;
     font-weight: 400;
-    line-height: 18px; /* 138.462% */
+    line-height: 18px;
+    /* 138.462% */
     margin-left: 14px;
 }
 
@@ -75,18 +79,18 @@
         margin-right: 20px;
         padding-left: 20px;
     }
-    }
-  
+}
+
 @media (max-width: 767px) {
     .filtercheckbox {
-        background-color:#202020;
+        background-color: #202020;
         border: none;
         width: 100%;
         padding-top: 37px;
         padding-bottom: 34px;
-      }
+    }
 
     .filtercheckbox__text {
         font-size: 11px;
     }
-    }
+}

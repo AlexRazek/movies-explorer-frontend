@@ -7,9 +7,10 @@ const resResponse = (res) => {
 };
 
 // export const BASE_URL = "https://alexmovie.nomoredomains.sbs";
-export const BASE_URL = "http://localhost:3000";
+// export const BASE_URL = "http://localhost:3000";
+export const BASE_URL = "https://api.alexmovie.nomoredomains.xyz";
 
-export const register = (email, password, name) => {
+export const register = (name, email, password) => {
   return fetch(`${BASE_URL}/signup`, {
     method: "POST",
     headers: {
@@ -17,7 +18,7 @@ export const register = (email, password, name) => {
       "Content-Type": "application/json",
     },
     credentials: "include",
-    body: JSON.stringify({ email, password, name }),
+    body: JSON.stringify({ name, email, password }),
   }).then(resResponse);
 };
 
@@ -33,15 +34,13 @@ export const authorize = (email, password) => {
   }).then(resResponse);
 };
 
-export const registerOut = (name, email) => {
+export const registerOut = () => {
   return fetch(`${BASE_URL}/signout`, {
-    method: "POST",
+    method: "GET",
     headers: {
-      Accept: "application/json",
       "Content-Type": "application/json",
     },
     credentials: "include",
-    body: JSON.stringify({ name, email }),
   }).then(resResponse);
 };
 

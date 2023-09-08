@@ -1,83 +1,84 @@
 .header {
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    flex-direction: row;
-    align-items: center;
-    height: 74px;
-    padding-left: 70px;
-    padding-right: 70px;
-    background-color: inherit;
-  }
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+  height: 74px;
+  padding-left: 70px;
+  padding-right: 70px;
+  background-color: inherit;
+}
 
 .header_color-firstpage {
-    background-color: #073042;
+  background-color: #073042;
 }
 
 
 .header__logo {
-    margin: 0;
-    padding: 0;
-    width: 38px;
-    height: 38px;
-    background: url('../../images/logo-smile.svg');
-    background-size: cover;
-    background-repeat: round;
-    z-index: 2;
+  margin: 0;
+  padding: 0;
+  width: 38px;
+  height: 38px;
+  background: url('../../images/logo-smile.svg');
+  background-size: cover;
+  background-repeat: round;
+  z-index: 2;
 }
 
 .header__auth {
-    margin: 0;
-    display: flex;
-    flex-direction: row;
+  margin: 0;
+  display: flex;
+  flex-direction: row;
 }
 
 .header__auth-text {
-    margin: auto;
-    padding: 0;
-    color: #FFF;
-    font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 16px;
-    text-decoration: none;
-    cursor: pointer;
+  margin: auto;
+  padding: 0;
+  color: #FFF;
+  font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 16px;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .header__auth-text:hover {
-    cursor: pointer;
-    opacity: 0.7;
-    transition: opacity 1s linear;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 1s linear;
 }
 
 .header__auth-btn {
-    display: flex;
-    place-content: center;
-    align-items: center;
-    width: 76px;
-    height: 32px;
-    border-radius: 3px;
-    box-sizing: border-box;
-    background-color: #3DDC84;
-    margin: 21px 0 21px 30px;
-    font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 16px; /* 133.333% */
-    text-align: center;
-    text-decoration: none;
-    color: #000;
-    opacity: 1;
-    cursor: pointer;
+  display: flex;
+  place-content: center;
+  align-items: center;
+  width: 76px;
+  height: 32px;
+  border-radius: 3px;
+  box-sizing: border-box;
+  background-color: #3DDC84;
+  margin: 21px 0 21px 30px;
+  font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 16px;
+  /* 133.333% */
+  text-align: center;
+  text-decoration: none;
+  color: #000;
+  opacity: 1;
+  cursor: pointer;
 }
 
 .header__auth-btn:hover {
-    cursor: pointer;
-    opacity: 0.8;
-    transition: opacity 1s linear;
-} 
+  cursor: pointer;
+  opacity: 0.8;
+  transition: opacity 1s linear;
+}
 
 .header__movies {
   margin: 28px 0 28px 44px;
@@ -88,7 +89,8 @@
   font-size: 13px;
   font-style: normal;
   font-weight: 400;
-  line-height: 18px; /* 138.462% */
+  line-height: 18px;
+  /* 138.462% */
   text-decoration: none;
 }
 
@@ -101,13 +103,14 @@
   font-size: 13px;
   font-style: normal;
   font-weight: 400;
-  line-height: 18px; /* 138.462% */
+  line-height: 18px;
+  /* 138.462% */
   text-decoration: none;
 }
 
 .header__choise {
   font-weight: 500;
-} 
+}
 
 .header__accaunt {
   width: 114px;
@@ -132,7 +135,7 @@
   background-color: transparent;
   display: none;
   /* background: none; */
-  
+
 }
 
 @media (max-width: 1023px) {
@@ -142,14 +145,15 @@
 
   .header__movies {
     display: none;
-}
+  }
+
   .header__saved-movies {
     display: none;
   }
 
   .header__accaunt {
     display: none;
-}
+  }
 
   .header__burger-menu {
     display: block;
@@ -157,19 +161,19 @@
 
 
 }
-  
+
 @media (max-width: 767px) {
-  .header { 
+  .header {
     padding-left: 20px;
     padding-right: 20px;
+  }
 }
-}
-  
+
 @media (max-width: 425px) {
   .header {
     padding-left: 14px;
     padding-right: 14px;
-}
+  }
 
   .header__auth-text {
     font-size: 10px;
@@ -181,6 +185,7 @@
     width: 54px;
     height: 26px;
   }
+
   .header__accaunt {
     margin-top: 8px;
   }
