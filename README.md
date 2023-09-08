@@ -1,4 +1,4 @@
-### Сделан финальный проект (Frontend + Backend) на веб-факультете в @yandex.practicum.  
+# Сделан финальный проект (Frontend + Backend) на веб-факультете в @yandex.practicum.  
 ## Это сервис, в котором можно найти фильмы по запросу и сохранить в личном кабинете.  
 ## Вот что было сделано:  
 * настроена инфраструктура и создан сервер на express;  
@@ -16,21 +16,21 @@
 * Frontend: https://alexmovie.nomoredomains.sbs  
 
 ## Инструменты и стек: 
-* # HTML  
-* # CSS   
-* # React  
-* # Express  
-* # MongoDB  
-* # NodeJS  
-* # API  
-* # Nginx  
-* # JWT  
-* # Postman  
+* ### HTML  
+* ### CSS   
+* ### React  
+* ### Express  
+* ### MongoDB  
+* ### NodeJS  
+* ### API  
+* ### Nginx  
+* ### JWT  
+* ### Postman  
    
 ## Команды для запуска проекта:  
-* # Backend:  
+* ### Backend:  
 * npm run start — запускает сервер  
 * npm run dev — запускает сервер с hot-reload  
-* # Frontend:  
+* ### Frontend:  
 * npm run build — запуск проекта в режиме продакшн, с формированием файлов подготовленных к деплою в директории /build  
 * npm start — запуск проекта в режиме разработки  
